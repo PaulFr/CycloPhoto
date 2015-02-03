@@ -12,6 +12,6 @@ class DefaultController extends Controller
     }
 
     public function contentAction() {
-        return $this->render('projetPhotoCylcoPhotoBundle:Default:content.html.twig');
+        return $this->render('projetPhotoCycloPhotoBundle:Default:content.html.twig');
     }
 }

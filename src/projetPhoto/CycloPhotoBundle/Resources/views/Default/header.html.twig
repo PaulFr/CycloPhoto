@@ -1,41 +1,44 @@
 {% extends '::base.html.twig' %}
 
-{% block header %} 
-	<nav id="header">
-      <div class="wrapper">
-        <div id="logo">
-          <h1><a href="photos.html"><span>Mes</span>Photos</a></h1>
-        </div>
-        <ul>
-          <li><a href="">Inscription</a></li>
-          <li><a href="">Connexion</a></li>
-          <li>
-            <a href="">Test</a>
-            <ul class="dropmenu">
-              <li><a href="">Test</a></li>
-              <li><a href="">Test 2</a></li>
+{% block header %}
+    <nav id="header">
+        <div class="wrapper">
+            <div id="logo">
+                <h1><a href="photos.html"><span>Mes</span>Photos</a></h1>
+            </div>
+            <ul>
+                <li><a href="">Inscription</a></li>
+                <li><a href="">Connexion</a></li>
+                <li>
+                    <a href="">Test</a>
+                    <ul class="dropmenu">
+                        <li><a href="">Test</a></li>
+                        <li><a href="">Test 2</a></li>
+                    </ul>
+                </li>
+                <li><a href=""><i class="fa fa-shopping-cart"></i> Panier</a>
+                    <ul class="dropmenu">
+                        <li><a href="">Test</a></li>
+                        <li><a href="">Test 2 carrément beaucoup plus long</a></li>
+                    </ul>
+                </li>
             </ul>
-          </li>
-          <li><a href=""><i class="fa fa-shopping-cart"></i> Panier</a><ul class="dropmenu">
-            <li><a href="">Test</a></li>
-            <li><a href="">Test 2 carrément beaucoup plus long</a></li>
-          </ul></li>
-        </ul>
-        <select id="mobilenav" name="url">
-          <option>Menu</option>
-          <option value="/test">test</option>
-          <option value="/test">test trop bien</option>
-          <option value="/test">test</option>
-        </select>
-      </div>
+            <select id="mobilenav" name="url">
+                <option>Menu</option>
+                <option value="/test">test</option>
+                <option value="/test">test trop bien</option>
+                <option value="/test">test</option>
+            </select>
+        </div>
     </nav>
     <header class="prime">
-      <div class="wrapper">
-        <div id="title">
-          <h1>Phrase d'accroche</h1>
-          <h2>Sous-Titre</h2>
+        <div class="wrapper">
+            <div id="title">
+                <h1>Phrase d'accroche</h1>
+
+                <h2>Sous-Titre</h2>
+            </div>
         </div>
-        </div>
-      </header>
-	  {% block content %} {% endblock %}
+    </header>
+    {% block content %} {% endblock %}
 {% endblock %}
