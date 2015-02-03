@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-    {% block header %}{% endblock %}
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% stylesheets 'bundles/projetphotocyclophoto/css/app.css'
+    'bundles/projetphotocyclophoto/css/foundation/*'
+    'bundles/projetphotocyclophoto/css/font-awesome/*'
+    filter='cssrewrite' %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
+    {% endstylesheets %}
+    {% block stylesheets %}
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body>
+{% block body %}{% endblock %}
+{% javascripts
+'bundles/projetphotocyclophoto/js/vendor/*'
+'bundles/projetphotocyclophoto/js/foundation/*' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% block javascripts %}
+{% endblock %}
+</body>
+{% block header %}{% endblock %}
 </html>
+
