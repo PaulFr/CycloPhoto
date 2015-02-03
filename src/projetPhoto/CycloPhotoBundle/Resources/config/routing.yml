@@ -1,3 +1,7 @@
 projet_photo_cyclo_photo_homepage:
     path:     /hello/{name}
     defaults: { _controller: projetPhotoCycloPhotoBundle:Default:index }
+
+projet_photo_cyclo_photo_content:
+    path: /index
+    defaults: { _controller: projetPhotoCycloPhotoBundle:Default:content }

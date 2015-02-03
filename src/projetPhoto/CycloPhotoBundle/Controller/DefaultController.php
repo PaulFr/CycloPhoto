@@ -10,4 +10,8 @@ class DefaultController extends Controller
     {
         return $this->render('projetPhotoCycloPhotoBundle:Default:index.html.twig', array('name' => $name));
     }
+
+    public function contentAction() {
+        return $this->render('projetPhotoCylcoPhotoBundle:Default:content.html.twig');
+    }
 }
