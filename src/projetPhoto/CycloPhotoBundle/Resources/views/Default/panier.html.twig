@@ -1,0 +1,26 @@
+{% extends '::header.html.twig' %}
+
+{% block content %}
+    <div id="content">
+        <div class="wrapper">
+            <div class="blockEntete">
+                <p> Votre panier contient {{ panier.nombreProduit }} produit</p>
+            </div>
+            <div class="blockProduits">
+                {% for produit in panier.produits %}
+                <img src="{{ produit.lienImage }}"/>
+
+                <p>{{ produit.nom }}</p>
+
+                <p>{{ produit.prix }}
+                    <img src="asset('supprimer.png')"/>
+                    {% endfor %}
+            </div>
+            <div class="blockTotal">
+                <p> Total : {{ panier.prixTotal }}€ </p>
+
+                <div class="boutonPasserCommande"> Passer Commande</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
