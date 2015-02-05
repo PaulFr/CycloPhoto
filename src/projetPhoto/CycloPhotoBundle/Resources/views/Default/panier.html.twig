@@ -7,17 +7,25 @@
                 <p> Votre panier contient {{ panier.nombreProduit }} produit</p>
             </div>
             <div class="blockProduits">
+                {% set cpt = 0 %}
                 {% for produit in panier.produits %}
-                <img src="{{ produit.lienImage }}"/>
+                    <div class="blockProduit">
+                        {% set cpt = cpt+1 %}
+                        <img src="{{ produit.lienImage }}" class="imageProduit"/>
 
-                <p>{{ produit.nom }}</p>
+                        <p class="nomProduit">{{ produit.nom }}</p>
 
-                <p>{{ produit.prix }}
-                    <img src="asset('supprimer.png')"/>
-                    {% endfor %}
+                        <p class="prixProduit">{{ produit.prix }}</p>
+                        <img src="{{ asset('bundles/projetphotocyclophoto/images/suprimer.gif') }}"
+                             class="boutonSupprimer"/>
+                    </div>
+                    {% if cpt < panier.nombreProduit %}
+                        <div class="delimiteur"></div>
+                    {% endif %}
+                {% endfor %}
             </div>
             <div class="blockTotal">
-                <p> Total : {{ panier.prixTotal }}€ </p>
+                <p class="textePrixTotal"> Total : {{ panier.prixTotal }}€ </p>
 
                 <div class="boutonPasserCommande"> Passer Commande</div>
             </div>

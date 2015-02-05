@@ -418,7 +418,8 @@ header h1.title {
     width: 50%;
     float: left;
     padding: 10px;
-    color: #666
+    color: #666;
+    text-align: justify;
 }
 
 #content .blockinfo h2 {
@@ -489,4 +490,86 @@ footer {
     height: auto !important;
     height: 100%;
     clear: both
+}
+
+.blockEntete {
+    margin: auto auto auto 5%;
+    width: 95%;
+    height: 50px;
+    background-color: #22398E;
+    color: white;
+    border: 1px solid #CCD3DD;
+}
+
+.blockProduits {
+    margin-left: 5%;
+    border: 1px solid #CCD3DD;
+    margin-top: 15px;
+}
+
+.blockProduit {
+    width: 96%;
+    height: 100px;
+    margin-left: 2%;
+    margin-top: 5px;
+}
+
+.blockTotal {
+    margin-top: 15px;
+    width: 95%;
+    height: 50px;
+    background-color: #22398E;
+    color: white;
+    margin-left: 5%;
+    border: 1px solid #CCD3DD;
+}
+
+.boutonPasserCommande {
+    margin: 10px auto auto 10px;
+    height: 30px;
+    text-align: center;
+    background-color: #00FF00;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    color: white;
+    float: left;
+}
+
+.textePrixTotal {
+    float: left;
+    margin: 0 auto;
+}
+
+.imageProduit {
+    float: left;
+    height: 70px;
+    width: 70px;
+    margin-top: 15px;
+}
+
+.nomProduit {
+    float: left;
+    margin-top: 25px;
+    margin-left: 50px;
+}
+
+.prixProduit {
+    float: left;
+    margin-top: 25px;
+    margin-left: 50px;
+}
+
+.boutonSupprimer {
+    float: left;
+    width: 25px;
+    height: 25px;
+    margin-top: 25px;
+    margin-left: 50px;
+}
+
+.delimiteur {
+    width: 100%;
+    height: 1px;
+    background: url('../images/delimitateur.png') repeat;
 }
