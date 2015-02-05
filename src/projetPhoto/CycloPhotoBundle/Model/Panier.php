@@ -9,9 +9,9 @@ namespace projetPhoto\CycloPhotoBundle\Model;
  */
 class Panier
 {
-    public $nombreProduit;
-    public $produits;
-    public $prixTotal;
+    private $nombreProduit;
+    private $produits;
+    private $prixTotal;
 
     function __construct()
     {
@@ -23,4 +23,30 @@ class Panier
         array_push($this->produits, 'produit 2');
         array_push($this->produits, 'produit 3');
     }
+
+    /**
+     * @return int
+     */
+    public function getNombreProduit()
+    {
+        return $this->nombreProduit;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPrixTotal()
+    {
+        return $this->prixTotal;
+    }
+
+    /**
+     * @return array
+     */
+    public function getProduits()
+    {
+        return $this->produits;
+    }
+
+
 }
