@@ -1,5 +1,6 @@
 <?php
 
+namespace projetPhoto\CycloPhotoBundle\Model;
 /**
  * Created by PhpStorm.
  * User: Gaëtan

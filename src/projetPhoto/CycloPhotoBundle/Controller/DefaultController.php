@@ -2,6 +2,7 @@
 
 namespace projetPhoto\CycloPhotoBundle\Controller;
 
+use projetPhoto\CycloPhotoBundle\Model\Panier;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
@@ -13,8 +14,7 @@ class DefaultController extends Controller
 
     public function panierAction()
     {
-        require_once('Panier.php');
-        $panier = new \Panier();
+        $panier = new Panier();
 
         return $this->render('projetPhotoCycloPhotoBundle:Default:panier.html.twig', array('panier' => $panier));
     }
