@@ -1,14 +1,14 @@
 parameters:
     database_driver: pdo_mysql
-    database_host: 'https://infolimon.iutmontp.univ-montp2.fr/my/'
+    database_host: localhost
     database_port: null
-    database_name: jouniauxm
-    database_user: jouniauxm
-    database_password: 1105017531M
+    database_name: cyclo
+    database_user: root
+    database_password:
     mailer_transport: smtp
     mailer_host: 127.0.0.1
     mailer_user: null
     mailer_password: null
-    locale: en
+    locale: fr
     secret: 54ae5cefae4dcd5649f88edae24469c1e6111fc9
     database_path: null
