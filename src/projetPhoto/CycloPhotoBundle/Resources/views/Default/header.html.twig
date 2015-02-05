@@ -4,7 +4,7 @@
     <nav id="header">
         <div class="wrapper">
             <div id="logo">
-                <h1><a href="photos.html"><span>Cyclo</span>Photos</a></h1>
+                <h1><a href="{{ path('projet_photo_cyclo_photo_homepage') }}"><span>Cyclo</span>Photos</a></h1>
             </div>
             <ul>
                 <li><a href="">Inscription</a></li>
@@ -16,7 +16,8 @@
                         <li><a href="">Test 2</a></li>
                     </ul>
                 </li>
-                <li><a href=""><i class="fa fa-shopping-cart"></i> Panier</a>
+                <li><a href="{{ path('projet_photo_cyclo_photo_panier') }}"><i class="fa fa-shopping-cart"></i>
+                        Panier</a>
                     <ul class="dropmenu">
                         <li><a href="">Test</a></li>
                         <li><a href="">Test 2 carrément beaucoup plus long</a></li>

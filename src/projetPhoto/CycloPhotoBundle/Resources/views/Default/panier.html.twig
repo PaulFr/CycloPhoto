@@ -1,4 +1,4 @@
-{% extends '::header.html.twig' %}
+{% extends 'projetPhotoCycloPhotoBundle:Default:header.html.twig' %}
 
 {% block content %}
     <div id="content">
@@ -11,11 +11,11 @@
                 {% for produit in panier.produits %}
                     <div class="blockProduit">
                         {% set cpt = cpt+1 %}
-                        <img src="{{ produit.lienImage }}" class="imageProduit"/>
+                        <img src="{{ produit }}" class="imageProduit"/>
 
-                        <p class="nomProduit">{{ produit.nom }}</p>
+                        <p class="nomProduit">nom {{ produit }}</p>
 
-                        <p class="prixProduit">{{ produit.prix }}</p>
+                        <p class="prixProduit">prix {{ produit }}</p>
                         <img src="{{ asset('bundles/projetphotocyclophoto/images/suprimer.gif') }}"
                              class="boutonSupprimer"/>
                     </div>

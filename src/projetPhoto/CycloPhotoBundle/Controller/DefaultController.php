@@ -6,12 +6,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    public function indexAction($name)
+    public function indexAction()
     {
-        return $this->render('projetPhotoCycloPhotoBundle:Default:index.html.twig', array('name' => $name));
+        return $this->render('projetPhotoCycloPhotoBundle:Default:content.html.twig');
     }
 
-    public function contentAction() {
-        return $this->render('projetPhotoCycloPhotoBundle:Default:content.html.twig');
+    public function panierAction()
+    {
+        require_once('Panier.php');
+        $panier = new \Panier();
+
+        return $this->render('projetPhotoCycloPhotoBundle:Default:panier.html.twig', array('panier' => $panier));
     }
 }
