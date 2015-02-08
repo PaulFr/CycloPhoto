@@ -4,7 +4,22 @@ projet_photo_homepage:
 
 projet_photo_panier:
     path: /panier
-    defaults: { _controller: ProjetPhotoBundle:Default:panier }
+    defaults: { _controller: ProjetPhotoBundle:Photos:panier }
+projet_photo_ajouter_panier:
+    path: /panier/{id}
+    defaults: { _controller: ProjetPhotoBundle:Photos:ajouterPanier }
+
+projet_photo_connect:
+    path: /connect
+    defaults: { _controller: ProjetPhotoBundle:Photos:connexion }
+
+projet_photo_disconnect:
+    path: /disconnect
+    defaults: { _controller: ProjetPhotoBundle:Photos:deconnexion }
+
+projet_photo_myphotos:
+    path: /mes-photos
+    defaults: { _controller: ProjetPhotoBundle:Photos:mesPhotos }
 
 projet_photo_photos:
     path: /photos/{id}/{key}

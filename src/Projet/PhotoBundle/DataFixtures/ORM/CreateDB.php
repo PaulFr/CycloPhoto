@@ -95,8 +95,7 @@ class CreateDB implements FixtureInterface
         $participation->setCourse($listeCourses[1]);
         $participation->setPersonne($listePersonnes[0]);
         $participation->setNumDossard(1);
-        $generator = new SecureRandom();
-        $participation->setCodeUnique($generator->nextBytes(10));
+        $participation->setCodeUnique(sha1(rand(0, 20000)));
 
         $manager->persist($participation);
 
@@ -104,15 +103,15 @@ class CreateDB implements FixtureInterface
         $participation->setCourse($listeCourses[0]);
         $participation->setPersonne($listePersonnes[1]);
         $participation->setNumDossard(1);
-        $participation->setCodeUnique($generator->nextBytes(10));
+        $participation->setCodeUnique(sha1(rand(0, 20000)));
 
         $manager->persist($participation);
 
         $participation = new Participer();
         $participation->setCourse($listeCourses[0]);
         $participation->setPersonne($listePersonnes[2]);
-        $participation->setNumDossard(1);
-        $participation->setCodeUnique($generator->nextBytes(10));
+        $participation->setNumDossard(2);
+        $participation->setCodeUnique(sha1(rand(0, 20000)));
 
         $manager->persist($participation);
 

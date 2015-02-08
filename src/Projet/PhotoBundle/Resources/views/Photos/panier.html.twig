@@ -11,32 +11,34 @@
 {% block content %}
     <div id="content">
         <div class="wrapper">
-            <div class="blockEntete">
-                <p> Votre panier contient {{ panier.nombreProduit }} produit</p>
-            </div>
-            <div class="blockProduits">
-                {% set cpt = 0 %}
-                {% for produit in panier.produits %}
+            {% if panier is not null %}
+                <div class="blockEntete">
+                    <p> Votre panier contient {{ panier.photos|length }} produit</p>
+                </div>
+
+                <div class="blockProduits">
+                    {% for photo in panier.photos %}
                     <div class="blockProduit">
-                        {% set cpt = cpt+1 %}
-                        <img src="{{ produit }}" class="imageProduit"/>
+                        <img src="http://lorempicsum.com/simpsons/250/200/1" class="imageProduit"/>
 
-                        <p class="nomProduit">nom {{ produit }}</p>
+                        <p class="nomProduit">{{ photo.course.nomCourse }}</p>
 
-                        <p class="prixProduit">prix {{ produit }}</p>
+                        <p class="prixProduit">{{ photo.course.prixPhotoTTC }}€</p>
                         <img src="{{ asset('bundles/projetphoto/images/suprimer.gif') }}"
                              class="boutonSupprimer"/>
                     </div>
-                    {% if cpt < panier.nombreProduit %}
                         <div class="delimiteur"></div>
-                    {% endif %}
                 {% endfor %}
             </div>
             <div class="blockTotal">
-                <p class="textePrixTotal"> Total : {{ panier.prixTotal }}€ </p>
+                <p class="textePrixTotal"> Total : {{ panier.photos[0].course.prixPhotoTTC*panier.photos|length }}€ </p>
 
                 <div class="boutonPasserCommande"> Passer Commande</div>
             </div>
+            {% else %}
+                <p>Votre panier est vide</p>
+            {% endif %}
+
         </div>
     </div>
 {% endblock %}

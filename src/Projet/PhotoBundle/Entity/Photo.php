@@ -22,13 +22,13 @@ class Photo
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Projet\PhotoBundle\Entity\Course")
+     * @ORM\ManyToOne(targetEntity="Projet\PhotoBundle\Entity\Course", fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      */
     private $course;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Projet\PhotoBundle\Entity\Personne")
+     * @ORM\ManyToOne(targetEntity="Projet\PhotoBundle\Entity\Personne", fetch="EAGER")
      */
     private $personne;
 

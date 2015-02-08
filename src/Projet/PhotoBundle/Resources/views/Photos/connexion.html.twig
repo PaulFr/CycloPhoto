@@ -1,0 +1,28 @@
+{% extends '::header.html.twig' %}
+{% block title %}{{ parent() }} - Connexion{% endblock %}
+{% block main_title %}
+    <header>
+        <div class="wrapper">
+            <h1 class="title">Connexion</h1>
+        </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+    <div id="content">
+        <div class="wrapper">
+            <h1>Comment se connecter ?</h1>
+
+            <p>Vous n'êtes pas identifié sur le site. Ce site est sécurisé et permet l'accès aux photos tirées des
+                courses.</p>
+
+            <p>Pour avoir un accès au site, consultez vos e-mail : Si des photos sont à votre disposition, un lien
+                devrait vous avoir été envoyé.</p>
+
+            <p>Vous pourrez donc être identifié grâce au lien contenu dans l'e-mail.</p>
+            <br>
+
+            <p>Si vous n'avez pas reçu d'e-mail, vous pouvez contacter un administrateur.</p>
+        </div>
+    </div>
+{% endblock %}

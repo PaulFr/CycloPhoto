@@ -7,28 +7,25 @@
                 <h1><a href="{{ path('projet_photo_homepage') }}"><span>Cyclo</span>Photos</a></h1>
             </div>
             <ul>
-                <li><a href="">Inscription</a></li>
-                <li><a href="">Connexion</a></li>
-                <li>
-                    <a href="">Test</a>
-                    <ul class="dropmenu">
-                        <li><a href="">Test</a></li>
-                        <li><a href="">Test 2</a></li>
-                    </ul>
-                </li>
-                <li><a href="{{ path('projet_photo_panier') }}"><i class="fa fa-shopping-cart"></i>
-                        Panier</a>
-                    <ul class="dropmenu">
-                        <li><a href="">Test</a></li>
-                        <li><a href="">Test 2 carrément beaucoup plus long</a></li>
-                    </ul>
-                </li>
+                {% if app.session.get('participation') is null %}
+                    <li><a href="{{ path('projet_photo_connect') }}">Connexion</a></li>
+                {% else %}
+                    <li><a href="{{ path('projet_photo_myphotos') }}">Mes Photos</a></li>
+                    <li><a href="{{ path('projet_photo_panier') }}"><i class="fa fa-shopping-cart"></i> Panier</a></li>
+                    <li><a href="{{ path('projet_photo_disconnect') }}">Deconnexion</a></li>
+                {% endif %}
             </ul>
             <select id="mobilenav" name="url">
                 <option>Menu</option>
-                <option value="/test">test</option>
-                <option value="/test">test trop bien</option>
-                <option value="/test">test</option>
+                <option value="{{ path('projet_photo_homepage') }}">Accueil</option>
+                {% if app.session.get('participation') is null %}
+                    <option value="{{ path('projet_photo_connect') }}">Connexion</option>
+                {% else %}
+                    <option value="{{ path('projet_photo_myphotos') }}">Mes Photos</option>
+                    <option value="{{ path('projet_photo_homepage') }}">Panier</option>
+                    <option value="{{ path('projet_photo_disconnect') }}">Deconnexion</option>
+                {% endif %}
+
             </select>
         </div>
     </nav>

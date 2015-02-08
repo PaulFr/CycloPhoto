@@ -11,73 +11,22 @@
 {% block content %}
     <div id="content">
         <div class="wrapper">
+            <h1>Photos de {{ participation.personne.prenom|title }} de la course "{{ participation.course.nomCourse }}
+                "</h1>
+
+            <p>Le {{ participation.course.dateCourse|date('d/m/Y') }}</p>
             <div class="photos">
-                <div class="photo">
-                    <a href="#"><img src="http://lorempicsum.com/simpsons/250/200/1"></a>
-
-                    <div class="add"><a href="">Ajouter au panier</a></div>
-                </div>
-
-                <div class="photo">
-                    <a href="#"><img src="http://lorempicsum.com/simpsons/250/200/1"></a>
-
-                    <div class="add"><a href="">Ajouter au panier</a></div>
-                </div>
-
-                <div class="photo">
-                    <a href="#"><img src="http://lorempicsum.com/simpsons/250/200/1"></a>
-
-                    <div class="add"><a href="">Ajouter au panier</a></div>
-                </div>
-
-                <div class="photo">
-                    <a href="#"><img src="http://lorempicsum.com/simpsons/250/200/1"></a>
-
-                    <div class="add"><a href="">Ajouter au panier</a></div>
-                </div>
-
-                <div class="photo">
-                    <a href="#"><img src="http://lorempicsum.com/simpsons/250/200/1"></a>
-
-                    <div class="add"><a href="">Ajouter au panier</a></div>
-                </div>
-
-                <div class="photo">
-                    <a href="#"><img src="http://lorempicsum.com/simpsons/250/200/1"></a>
-
-                    <div class="add"><a href="">Ajouter au panier</a></div>
-                </div>
-
-                <div class="photo">
-                    <a href="#"><img src="http://lorempicsum.com/simpsons/250/200/1"></a>
-
-                    <div class="add"><a href="">Ajouter au panier</a></div>
-                </div>
-
-                <div class="photo">
-                    <a href="#"><img src="http://lorempicsum.com/simpsons/250/200/1"></a>
-
-                    <div class="add"><a href="">Ajouter au panier</a></div>
-                </div>
-
-                <div class="photo">
-                    <a href="#"><img src="http://lorempicsum.com/simpsons/250/200/1"></a>
-
-                    <div class="add"><a href="">Ajouter au panier</a></div>
-                </div>
-
-                <div class="photo">
-                    <a href="#"><img src="http://lorempicsum.com/simpsons/250/200/1"></a>
-
-                    <div class="add"><a href="">Ajouter au panier</a></div>
-                </div>
-
-                <div class="photo">
-                    <a href="#"><img src="http://lorempicsum.com/simpsons/250/200/1"></a>
-
-                    <div class="add"><a href="">Ajouter au panier</a></div>
-                </div>
-
+                {% for photo in participation.course.photos %}
+                    <div class="photo">
+                        <a href="#"><img src="http://lorempicsum.com/simpsons/250/200/1"></a>
+                        {% if app.session.get('panier').isBought(photo.id) == false %}
+                            <div class="add"><a href="{{ path('projet_photo_ajouter_panier',{'id':photo.id}) }}">Ajouter
+                                    au panier ({{ participation.course.prixPhotoTTC }}€)</a></div>
+                        {% else %}
+                            <div class="add">Déjà dans le panier</div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>

@@ -131,4 +131,12 @@ class Achat
     {
         return $this->photos;
     }
+
+    public function isBought($id)
+    {
+        foreach ($this->photos as $photo) {
+            if ($id == $photo->getId()) return true;
+        }
+        return false;
+    }
 }

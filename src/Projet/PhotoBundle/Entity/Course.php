@@ -40,10 +40,17 @@ class Course
      */
     private $photos;
 
+    /**
+     * @var date
+     * @ORM\Column(name="dateCourse", type="date")
+     */
+    private $dateCourse;
+
 
     public function __construct()
     {
         $this->photos = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->dateCourse = new \DateTime();
     }
 
 
@@ -125,5 +132,21 @@ class Course
     public function getPhotos()
     {
         return $this->photos;
+    }
+
+    /**
+     * @return date
+     */
+    public function getDateCourse()
+    {
+        return $this->dateCourse;
+    }
+
+    /**
+     * @param date $dateCourse
+     */
+    public function setDateCourse($dateCourse)
+    {
+        $this->dateCourse = $dateCourse;
     }
 }
