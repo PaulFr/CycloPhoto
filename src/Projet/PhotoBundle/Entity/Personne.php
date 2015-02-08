@@ -56,6 +56,15 @@ class Personne
      */
     private $dateNaissance;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Projet\PhotoBundle\Entity\Photo", mappedBy="course")
+     */
+    private $photos;
+
+    public function __construct()
+    {
+        $this->photos = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -180,5 +189,29 @@ class Personne
         $this->dateNaissance = $dateNaissance;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function addPhoto(\Projet\PhotoBundle\Entity\Photo $photo)
+    {
+        $this->photos[] = $photo;
+        $photo->setCourse($this);
+        return $this;
+    }
+
+    /**
+     * @param mixed $photo
+     */
+    public function removePhoto(\Projet\PhotoBundle\Entity\Photo $photo)
+    {
+        $this->photos->removeElement($photo);
+        return $this;
+    }
+
+    public function getPhotos()
+    {
+        return $this->photos;
     }
 }
