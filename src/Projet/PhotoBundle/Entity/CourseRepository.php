@@ -1,6 +1,6 @@
 <?php
 
-namespace projetPhoto\CycloPhotoBundle\Entity;
+namespace Projet\PhotoBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 

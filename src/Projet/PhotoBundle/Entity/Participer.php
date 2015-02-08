@@ -1,6 +1,6 @@
 <?php
 
-namespace projetPhoto\CycloPhotoBundle\Entity;
+namespace Projet\PhotoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Participer
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="projetPhoto\CycloPhotoBundle\Entity\ParticiperRepository")
+ * @ORM\Entity(repositoryClass="Projet\PhotoBundle\Entity\ParticiperRepository")
  */
 class Participer
 {
