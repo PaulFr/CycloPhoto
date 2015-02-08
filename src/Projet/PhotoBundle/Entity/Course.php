@@ -106,7 +106,7 @@ class Course
     /**
      * @return mixed
      */
-    public function addPhoto(Projet\PhotoBundle\Entity\Photo $photo)
+    public function addPhoto(\Projet\PhotoBundle\Entity\Photo $photo)
     {
         $this->photos[] = $photo;
         $photo->setCourse($this);

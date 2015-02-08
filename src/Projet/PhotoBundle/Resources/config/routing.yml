@@ -5,3 +5,7 @@ projet_photo_homepage:
 projet_photo_panier:
     path: /panier
     defaults: { _controller: ProjetPhotoBundle:Default:panier }
+
+projet_photo_photos:
+    path: /photos/{id}/{key}
+    defaults: { _controller: ProjetPhotoBundle:Photos:afficher }

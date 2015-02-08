@@ -46,7 +46,7 @@ class Photo
     /**
      * Get course
      *
-     * @return Projet\PhotoBundle\Entity\Course
+     * @return \Projet\PhotoBundle\Entity\Course
      */
     public function getCourse()
     {
@@ -56,16 +56,16 @@ class Photo
     /**
      * Set course
      *
-     * @param Projet\PhotoBundle\Entity\Course $course
+     * @param \Projet\PhotoBundle\Entity\Course $course
      */
-    public function setCourse(Projet\PhotoBundle\Entity\Course $course)
+    public function setCourse(\Projet\PhotoBundle\Entity\Course $course)
     {
         $this->course = $course;
     }
 
     /**
      * get Personne
-     * @return Projet\PhotoBundle\Entity\Personne
+     * @return \Projet\PhotoBundle\Entity\Personne
      */
     public function getPersonne()
     {
@@ -74,9 +74,9 @@ class Photo
 
     /**
      * set Personne
-     * @param Projet\PhotoBundle\Entity\Personne $personne
+     * @param \Projet\PhotoBundle\Entity\Personne $personne
      */
-    public function setPersonne(Projet\PhotoBundle\Entity\Personne $personne)
+    public function setPersonne(\Projet\PhotoBundle\Entity\Personne $personne)
     {
         $this->personne = $personne;
     }

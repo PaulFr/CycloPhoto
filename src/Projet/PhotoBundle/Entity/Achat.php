@@ -85,7 +85,7 @@ class Achat
     /**
      * Get personne
      *
-     * @return Projet\PhotoBundle\Entity\Personne
+     * @return \Projet\PhotoBundle\Entity\Personne
      */
     public function getPersonne()
     {
@@ -95,9 +95,9 @@ class Achat
     /**
      * Set personne
      *
-     * @param Projet\PhotoBundle\Entity\Personne $personne
+     * @param \Projet\PhotoBundle\Entity\Personne $personne
      */
-    public function setPersonne(Projet\PhotoBundle\Entity\Personne $personne)
+    public function setPersonne(\Projet\PhotoBundle\Entity\Personne $personne)
     {
         $this->personne = $personne;
     }
@@ -105,9 +105,9 @@ class Achat
     /**
      * Add photos
      *
-     * @param Projet\PhotoBundle\Entity\Photo $photos
+     * @param \Projet\PhotoBundle\Entity\Photo $photos
      */
-    public function addPhoto(Projet\PhotoBundle\Entity\Photo $photo)
+    public function addPhoto(\Projet\PhotoBundle\Entity\Photo $photo)
     {
         $this->photos[] = $photo;
     }
@@ -115,9 +115,9 @@ class Achat
     /**
      * Remove photos
      *
-     * @param Projet\PhotoBundle\Entity\Photo $photos
+     * @param \Projet\PhotoBundle\Entity\Photo $photos
      */
-    public function removePhoto(Projet\PhotoBundle\Entity\Photo $photo)
+    public function removePhoto(\Projet\PhotoBundle\Entity\Photo $photo)
     {
         $this->photos->removeElement($photo);
     }
@@ -125,7 +125,7 @@ class Achat
     /**
      * Get photos
      *
-     * @return Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getPhotos()
     {
