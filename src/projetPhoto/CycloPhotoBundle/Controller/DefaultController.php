@@ -16,6 +16,7 @@ class DefaultController extends Controller
     {
         $panier = new Panier();
 
+
         return $this->render('projetPhotoCycloPhotoBundle:Default:panier.html.twig', array('panier' => $panier));
     }
 }
