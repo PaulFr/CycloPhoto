@@ -21,6 +21,17 @@ class Photo
      */
     private $id;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Projet\PhotoBundle\Entity\Course")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $course;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Projet\PhotoBundle\Entity\Personne")
+     */
+    private $personne;
+
 
     /**
      * Get id
@@ -30,5 +41,43 @@ class Photo
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get course
+     *
+     * @return Projet\PhotoBundle\Entity\Course
+     */
+    public function getCourse()
+    {
+        return $this->course;
+    }
+
+    /**
+     * Set course
+     *
+     * @param Projet\PhotoBundle\Entity\Course $course
+     */
+    public function setCourse(Projet\PhotoBundle\Entity\Course $course)
+    {
+        $this->course = $course;
+    }
+
+    /**
+     * get Personne
+     * @return Projet\PhotoBundle\Entity\Personne
+     */
+    public function getPersonne()
+    {
+        return $this->personne;
+    }
+
+    /**
+     * set Personne
+     * @param Projet\PhotoBundle\Entity\Personne $personne
+     */
+    public function setPersonne(Projet\PhotoBundle\Entity\Personne $personne)
+    {
+        $this->personne = $personne;
     }
 }

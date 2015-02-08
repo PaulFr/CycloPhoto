@@ -13,13 +13,16 @@ use Doctrine\ORM\Mapping as ORM;
 class Participer
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\ManyToOne(targetEntity="Projet\PhotoBundle\Entity\Personne")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    private $personne;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Projet\PhotoBundle\Entity\Course")
+     * @ORM\Id
+     */
+    private $course;
 
     /**
      * @var integer
@@ -28,16 +31,13 @@ class Participer
      */
     private $numDossard;
 
-
     /**
-     * Get id
+     * @var string
      *
-     * @return integer
+     * @ORM\Column(name="codeUnique", type="string", length=255)
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $codeUnique;
+
 
     /**
      * Get numDossard
@@ -60,5 +60,53 @@ class Participer
         $this->numDossard = $numDossard;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCodeUnique()
+    {
+        return $this->codeUnique;
+    }
+
+    /**
+     * @param string $codeUnique
+     */
+    public function setCodeUnique($codeUnique)
+    {
+        $this->codeUnique = $codeUnique;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPersonne()
+    {
+        return $this->personne;
+    }
+
+    /**
+     * @param mixed $personne
+     */
+    public function setPersonne(\Projet\PhotoBundle\Entity\Personne $personne)
+    {
+        $this->personne = $personne;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCourse()
+    {
+        return $this->course;
+    }
+
+    /**
+     * @param mixed $course
+     */
+    public function setCourse(\Projet\PhotoBundle\Entity\Course $course)
+    {
+        $this->course = $course;
     }
 }
