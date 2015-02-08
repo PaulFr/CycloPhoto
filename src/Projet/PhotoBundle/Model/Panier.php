@@ -1,6 +1,6 @@
 <?php
 
-namespace projetPhoto\CycloPhotoBundle\Model;
+namespace Projet\PhotoBundle\Model;
 /**
  * Created by PhpStorm.
  * User: Gaëtan

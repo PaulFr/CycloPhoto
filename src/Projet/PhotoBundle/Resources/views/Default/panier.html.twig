@@ -1,4 +1,4 @@
-{% extends 'projetPhotoCycloPhotoBundle:Default:header.html.twig' %}
+{% extends '::header.html.twig' %}
 {% block title %}{{ parent() }} - Votre panier{% endblock %}
 {% block main_title %}
     <header>
@@ -24,7 +24,7 @@
                         <p class="nomProduit">nom {{ produit }}</p>
 
                         <p class="prixProduit">prix {{ produit }}</p>
-                        <img src="{{ asset('bundles/projetphotocyclophoto/images/suprimer.gif') }}"
+                        <img src="{{ asset('bundles/projetphoto/images/suprimer.gif') }}"
                              class="boutonSupprimer"/>
                     </div>
                     {% if cpt < panier.nombreProduit %}

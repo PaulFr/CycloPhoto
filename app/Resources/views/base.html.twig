@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8"/>
     <title>{% block title %}CycloPhoto{% endblock %}</title>
-    {% stylesheets 'bundles/projetphotocyclophoto/css/app.css'
-    'bundles/projetphotocyclophoto/css/foundation/*'
-    'bundles/projetphotocyclophoto/css/font-awesome/*'
+    {% stylesheets 'bundles/projetphoto/css/app.css'
+    'bundles/projetphoto/css/foundation/*'
+    'bundles/projetphoto/css/font-awesome/*'
     filter='cssrewrite' %}
     <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
     {% endstylesheets %}
@@ -16,8 +16,8 @@
 <body>
 {% block body %}{% endblock %}
 {% javascripts
-'bundles/projetphotocyclophoto/js/vendor/*'
-'bundles/projetphotocyclophoto/js/foundation/*' %}
+'bundles/projetphoto/js/vendor/*'
+'bundles/projetphoto/js/foundation/*' %}
 <script src="{{ asset_url }}"></script>
 {% endjavascripts %}
 {% block javascripts %}

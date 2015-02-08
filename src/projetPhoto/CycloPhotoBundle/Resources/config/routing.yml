@@ -1,7 +1,0 @@
-projet_photo_cyclo_photo_homepage:
-    path:     /index
-    defaults: { _controller: projetPhotoCycloPhotoBundle:Default:index }
-
-projet_photo_cyclo_photo_panier:
-    path: /panier
-    defaults: { _controller: projetPhotoCycloPhotoBundle:Default:panier }

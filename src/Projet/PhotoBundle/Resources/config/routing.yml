@@ -1,0 +1,7 @@
+projet_photo_homepage:
+    path:     /index
+    defaults: { _controller: ProjetPhotoBundle:Default:index }
+
+projet_photo_panier:
+    path: /panier
+    defaults: { _controller: ProjetPhotoBundle:Default:panier }

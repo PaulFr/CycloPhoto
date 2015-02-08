@@ -1,6 +1,7 @@
-projet_photo_cyclo_photo:
-    resource: "@projetPhotoCycloPhotoBundle/Resources/config/routing.yml"
+projet_photo:
+    resource: "@ProjetPhotoBundle/Resources/config/routing.yml"
     prefix:   /
+
 
 app:
     resource: @AppBundle/Controller/

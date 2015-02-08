@@ -1,4 +1,0 @@
-services:
-#    projet_photo_cyclo_photo.example:
-#        class: projetPhoto\CycloPhotoBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
