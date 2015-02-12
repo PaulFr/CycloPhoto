@@ -155,4 +155,9 @@ class Course
     {
         $this->dateCourse = $dateCourse;
     }
+
+    public function __toString()
+    {
+        return $this->nomCourse;
+    }
 }

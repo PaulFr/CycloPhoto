@@ -1,0 +1,30 @@
+admin_photo:
+    path:     /
+    defaults: { _controller: "ProjetPhotoBundle:Photo:index" }
+
+admin_photo_show:
+    path:     /{id}/show
+    defaults: { _controller: "ProjetPhotoBundle:Photo:show" }
+
+admin_photo_new:
+    path:     /new
+    defaults: { _controller: "ProjetPhotoBundle:Photo:new" }
+
+admin_photo_create:
+    path:     /create
+    defaults: { _controller: "ProjetPhotoBundle:Photo:create" }
+    requirements: { _method: post }
+
+admin_photo_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ProjetPhotoBundle:Photo:edit" }
+
+admin_photo_update:
+    path:     /{id}/update
+    defaults: { _controller: "ProjetPhotoBundle:Photo:update" }
+    requirements: { _method: post|put }
+
+admin_photo_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ProjetPhotoBundle:Photo:delete" }
+    requirements: { _method: post|delete }

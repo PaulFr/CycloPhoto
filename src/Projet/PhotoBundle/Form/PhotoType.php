@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class CourseType extends AbstractType
+class PhotoType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,11 +15,8 @@ class CourseType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nomCourse', null, array("label" => "Nom de la course"))
-            ->add('prixPhotoTTC', "number", array("label" => "Prix TTC d'une photo"))
-            ->add('dateCourse', null, array("label" => "Date de la course"))
-            ->add('coureurs', 'file', array('label' => 'Importation du fichier des coureurs', 'mapped' => false, 'required' => false));
-
+            ->add('course')
+            ->add('personne');
     }
 
     /**
@@ -28,7 +25,7 @@ class CourseType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Projet\PhotoBundle\Entity\Course'
+            'data_class' => 'Projet\PhotoBundle\Entity\Photo'
         ));
     }
 
@@ -37,6 +34,6 @@ class CourseType extends AbstractType
      */
     public function getName()
     {
-        return 'projet_photobundle_course';
+        return 'projet_photobundle_photo';
     }
 }

@@ -57,7 +57,7 @@ class Personne
     private $dateNaissance;
 
     /**
-     * @ORM\OneToMany(targetEntity="Projet\PhotoBundle\Entity\Photo", mappedBy="photo")
+     * @ORM\OneToMany(targetEntity="Projet\PhotoBundle\Entity\Photo", mappedBy="personne")
      */
     private $photos;
 
@@ -226,5 +226,10 @@ class Personne
         $this->setDateNaissance(\DateTime::createFromFormat('d/m/Y', $row[10]));
         $this->setAdresse($row[5] . ', ' . $row[6] . ' ' . $row[7]);
         $this->setEmail($row[9]);
+    }
+
+    public function __toString()
+    {
+        return $this->prenom . ' ' . $this->nom;
     }
 }

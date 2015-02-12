@@ -28,7 +28,7 @@ class Photo
     private $course;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Projet\PhotoBundle\Entity\Personne", fetch="EAGER")
+     * @ORM\ManyToOne(targetEntity="Projet\PhotoBundle\Entity\Personne", inversedBy="photos", fetch="EAGER")
      */
     private $personne;
 

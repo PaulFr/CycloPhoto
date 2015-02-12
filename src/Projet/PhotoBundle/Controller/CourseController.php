@@ -48,33 +48,8 @@ class CourseController extends Controller
             $em->persist($entity);
 
             //Gestion des coureurs
-            $form['coureurs']->getData()->move('../../../web', 'import.csv');;
-
-            $reader = new CsvReader(new \SplFileObject('../../../web/import.csv'), ';');
-
-            $repository = $this->getDoctrine()->getRepository("ProjetPhotoBundle:Personne");
-            for ($i = 1; $i < $reader->count(); $i++) {
-                $row = $reader->getRow($i);
-                $personne = new Personne();
-                $personne->fill($row);
-                if (!$repository->isExisting($personne)) {
-                    $em->persist($personne);
-                } else {
-                    $personne = $repository->getExistingPersonne($personne);
-                }
-
-                $em->flush();
-
-                $participation = new Participer();
-                $participation->setPersonne($personne);
-                $participation->setCourse($entity);
-                $participation->setNumDossard($row[0]);
-                $participation->setCodeUnique(sha1(rand(0, 20000)));
-
-                $em->persist($participation);
-            }
-
-            $em->flush();
+            if ($form['coureurs']->getData() != null)
+                $this->extractCoureurs($form, $em, $entity);
 
             return $this->redirect($this->generateUrl('admin_course_show', array('id' => $entity->getId())));
         }
@@ -102,6 +77,42 @@ class CourseController extends Controller
         $form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;
+    }
+
+    /**
+     * @param $form
+     * @param $em
+     * @param $entity
+     */
+    public function extractCoureurs($form, $em, $entity)
+    {
+        $form['coureurs']->getData()->move('../../../web', 'import.csv');;
+
+        $reader = new CsvReader(new \SplFileObject('../../../web/import.csv'), ';');
+
+        $repository = $this->getDoctrine()->getRepository("ProjetPhotoBundle:Personne");
+        for ($i = 1; $i < $reader->count(); $i++) {
+            $row = $reader->getRow($i);
+            $personne = new Personne();
+            $personne->fill($row);
+            if (!$repository->isExisting($personne)) {
+                $em->persist($personne);
+            } else {
+                $personne = $repository->getExistingPersonne($personne);
+            }
+
+            $em->flush();
+
+            $participation = new Participer();
+            $participation->setPersonne($personne);
+            $participation->setCourse($entity);
+            $participation->setNumDossard($row[0]);
+            $participation->setCodeUnique(sha1(rand(0, 20000)));
+
+            $em->persist($participation);
+        }
+
+        $em->flush();
     }
 
     /**
@@ -219,7 +230,12 @@ class CourseController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
-            $em->flush();
+
+            //Gestion des coureurs
+            if ($editForm['coureurs']->getData() != null) {
+                $em->createQuery('DELETE ProjetPhotoBundle:Participer p WHERE p.course = :course')->setParameter('course', $entity)->getResult();
+                $this->extractCoureurs($editForm, $em, $entity);
+            }
 
             return $this->redirect($this->generateUrl('admin_course_edit', array('id' => $id)));
         }
