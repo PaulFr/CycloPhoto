@@ -184,7 +184,7 @@ class Personne
      * @param \DateTime $dateNaissance
      * @return Personne
      */
-    public function setDateNaissance($dateNaissance)
+    public function setDateNaissance(\DateTime $dateNaissance)
     {
         $this->dateNaissance = $dateNaissance;
 
@@ -213,5 +213,17 @@ class Personne
     public function getPhotos()
     {
         return $this->photos;
+    }
+
+    /**
+     * fills a new entity with rows from CSV File
+     */
+    public function fill($row)
+    {
+        $this->setNom($row[2]);
+        $this->setPrenom($row[3]);
+        $this->setDateNaissance(\DateTime::createFromFormat('d/m/Y', $row[10]));
+        $this->setAdresse($row[5] . ', ' . $row[6] . ' ' . $row[7]);
+        $this->setEmail($row[9]);
     }
 }

@@ -2,6 +2,9 @@
 
 namespace Projet\PhotoBundle\Controller;
 
+use Ddeboer\DataImport\Reader\CsvReader;
+use Projet\PhotoBundle\Entity\Participer;
+use Projet\PhotoBundle\Entity\Personne;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -43,6 +46,34 @@ class CourseController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
+
+            //Gestion des coureurs
+            $form['coureurs']->getData()->move('../../../web', 'import.csv');;
+
+            $reader = new CsvReader(new \SplFileObject('../../../web/import.csv'), ';');
+
+            $repository = $this->getDoctrine()->getRepository("ProjetPhotoBundle:Personne");
+            for ($i = 1; $i < $reader->count(); $i++) {
+                $row = $reader->getRow($i);
+                $personne = new Personne();
+                $personne->fill($row);
+                if (!$repository->isExisting($personne)) {
+                    $em->persist($personne);
+                } else {
+                    $personne = $repository->getExistingPersonne($personne);
+                }
+
+                $em->flush();
+
+                $participation = new Participer();
+                $participation->setPersonne($personne);
+                $participation->setCourse($entity);
+                $participation->setNumDossard($row[0]);
+                $participation->setCodeUnique(sha1(rand(0, 20000)));
+
+                $em->persist($participation);
+            }
+
             $em->flush();
 
             return $this->redirect($this->generateUrl('admin_course_show', array('id' => $entity->getId())));

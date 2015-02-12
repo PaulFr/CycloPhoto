@@ -1,0 +1,25 @@
+{% extends '::header.html.twig' %}
+{% block title %}Administration - Coureurs{% endblock %}
+{% block main_title %}
+    <header>
+        <div class="wrapper">
+            <h1 class="title">Ajouter un nouveau coureur</h1>
+        </div>
+    </header>
+{% endblock %}
+{% block content %}
+    <div id="content">
+        <div class="wrapper">
+
+            {{ form(form) }}
+
+            <ul class="record_actions">
+                <li>
+                    <a href="{{ path('admin_personne') }}">
+                        Back to the list
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

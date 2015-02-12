@@ -1,0 +1,59 @@
+{% extends '::header.html.twig' %}
+{% block title %}Administration - Coureurs{% endblock %}
+{% block main_title %}
+    <header>
+        <div class="wrapper">
+            <h1 class="title">Liste des coureurs</h1>
+        </div>
+    </header>
+{% endblock %}
+{% block content %}
+    <div id="content">
+        <div class="wrapper">
+
+            <table class="records_list" style="width:100%;">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Adresse</th>
+                    <th>Email</th>
+                    <th>Date de naissance</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        <td><a href="{{ path('admin_personne_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                        <td>{{ entity.nom }}</td>
+                        <td>{{ entity.prenom }}</td>
+                        <td>{{ entity.adresse }}</td>
+                        <td>{{ entity.email }}</td>
+                        <td>{% if entity.dateNaissance %}{{ entity.dateNaissance|date('d/m/Y') }}{% endif %}</td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <a href="{{ path('admin_personne_show', { 'id': entity.id }) }}">show</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('admin_personne_edit', { 'id': entity.id }) }}">edit</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <ul>
+                <li>
+                    <a href="{{ path('admin_personne_new') }}">
+                        Ajouter un nouveau coureur manuellement
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

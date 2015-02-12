@@ -1,9 +1,15 @@
 {% extends '::header.html.twig' %}
-
+{% block title %}Administration - Courses{% endblock %}
+{% block main_title %}
+    <header>
+        <div class="wrapper">
+            <h1 class="title">Liste des courses</h1>
+        </div>
+    </header>
+{% endblock %}
 {% block content %}
     <div id="content">
         <div class="wrapper">
-            <h1>Liste des courses</h1>
 
             <table class="records_list" style="width:100%;">
         <thead>
@@ -37,13 +43,9 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_course_new') }}">
+            <a class="button" href="{{ path('admin_course_new') }}">
                 Ajouter une nouvelle course
             </a>
-        </li>
-    </ul>
         </div>
     </div>
 {% endblock %}

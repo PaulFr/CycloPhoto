@@ -4,10 +4,12 @@
     <meta charset="UTF-8"/>
     <title>{% block title %}CycloPhoto{% endblock %}</title>
     {% stylesheets 'bundles/projetphoto/css/app.css'
-    'bundles/projetphoto/css/foundation/*'
+    'bundles/projetphoto/css/foundation/foundation.min.css'
     'bundles/projetphoto/css/font-awesome/*'
     filter='cssrewrite' %}
     <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
     {% endstylesheets %}
     {% block stylesheets %}
     {% endblock %}

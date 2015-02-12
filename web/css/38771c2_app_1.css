@@ -16,10 +16,6 @@ audio:not([controls]) {
     display: none
 }
 
-table {
-    margin-top: 15px;
-}
-
 html {
     background: #fff;
     color: #000;
@@ -216,7 +212,6 @@ nav#header #logo h1 a {
     text-decoration: none
 }
 
-
 nav#header #mobilenav {
     float: right;
     margin: 15px 20px;
@@ -309,7 +304,7 @@ nav#header ul li ul.dropmenu li a {
 
 header {
     height: 100px;
-    background: url(../images/bg.png) repeat-x center;
+    background: url(../../bundles/projetphoto/images/bg.png) repeat-x center;
     width: 100%
 }
 

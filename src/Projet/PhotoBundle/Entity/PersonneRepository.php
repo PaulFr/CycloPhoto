@@ -12,4 +12,20 @@ use Doctrine\ORM\EntityRepository;
  */
 class PersonneRepository extends EntityRepository
 {
+
+    public function isExisting(Personne $personne)
+    {
+        $p = $this->getExistingPersonne($personne);
+        return $p != null;
+    }
+
+    public function getExistingPersonne(Personne $personne)
+    {
+        return $this->findOneBy(array(
+            'nom' => $personne->getNom(),
+            'prenom' => $personne->getPrenom(),
+            'adresse' => $personne->getAdresse()
+        ));
+    }
+
 }

@@ -13,7 +13,7 @@
         <div class="wrapper">
             {% if panier.photos|length > 0 %}
             <div class="carthead">
-                    <p> Votre panier contient {{ panier.photos|length }} produit</p>
+                <h1> Votre panier contient {{ panier.photos|length }} produit</h1>
                 </div>
             <table style="width:100%">
                 <thead>
@@ -33,7 +33,8 @@
                             <td>{{ photo.course.nomCourse }}</td>
 
                             <td>{{ photo.course.prixPhotoTTC }}€</td>
-                            <td><img src="{{ asset('bundles/projetphoto/images/suprimer.gif') }}"/></td>
+                            <td><a href="{{ path('projet_photo_panier_delete',{id: photo.id}) }}"><img
+                                            src="{{ asset('bundles/projetphoto/images/suprimer.gif') }}"/></a></td>
                         </tr>
                     {% endfor %}
                     <tr>

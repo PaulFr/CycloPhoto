@@ -1,0 +1,30 @@
+admin_personne:
+    path:     /
+    defaults: { _controller: "ProjetPhotoBundle:Personne:index" }
+
+admin_personne_show:
+    path:     /{id}/show
+    defaults: { _controller: "ProjetPhotoBundle:Personne:show" }
+
+admin_personne_new:
+    path:     /new
+    defaults: { _controller: "ProjetPhotoBundle:Personne:new" }
+
+admin_personne_create:
+    path:     /create
+    defaults: { _controller: "ProjetPhotoBundle:Personne:create" }
+    requirements: { _method: post }
+
+admin_personne_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ProjetPhotoBundle:Personne:edit" }
+
+admin_personne_update:
+    path:     /{id}/update
+    defaults: { _controller: "ProjetPhotoBundle:Personne:update" }
+    requirements: { _method: post|put }
+
+admin_personne_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ProjetPhotoBundle:Personne:delete" }
+    requirements: { _method: post|delete }

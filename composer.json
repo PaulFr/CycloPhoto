@@ -21,7 +21,8 @@
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
-        "doctrine/data-fixtures": "@dev"
+        "doctrine/data-fixtures": "@dev",
+        "ddeboer/data-import": "@stable"
 
     },
     "scripts": {

@@ -1,9 +1,15 @@
 {% extends '::header.html.twig' %}
-
+{% block title %}Administration - Courses{% endblock %}
+{% block main_title %}
+    <header>
+        <div class="wrapper">
+            <h1 class="title">Editer une course</h1>
+        </div>
+    </header>
+{% endblock %}
 {% block content %}
     <div id="content">
         <div class="wrapper">
-            <h1>Editer une course</h1>
 
     {{ form(edit_form) }}
 

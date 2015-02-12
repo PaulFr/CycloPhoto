@@ -3,7 +3,7 @@
 namespace Projet\PhotoBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Projet\PhotoBundle\Model\Panier;
+
 
 class DefaultController extends Controller
 {
@@ -13,12 +13,5 @@ class DefaultController extends Controller
     }
 
 
-    public function panierAction()
-    {
-        $panier = new Panier();
-
-
-        return $this->render('ProjetPhotoBundle:Default:panier.html.twig', array('panier' => $panier));
-    }
 
 }

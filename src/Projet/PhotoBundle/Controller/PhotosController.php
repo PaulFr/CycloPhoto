@@ -3,7 +3,6 @@
 namespace Projet\PhotoBundle\Controller;
 
 use Projet\PhotoBundle\Entity\Achat;
-use Projet\PhotoBundle\Model\Panier;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\BrowserKit\Response;
 
@@ -84,6 +83,19 @@ class PhotosController extends Controller
         $participation = $session->get('participation');
         if ($participation == null) throw $this->createNotFoundException("Participation non existante");
         return $participation;
+    }
+
+    public function deletePanierAction($id)
+    {
+        $participation = $this->canAccess();
+        $panier = $this->get('session')->get('panier');
+        $photo = $panier->isBought($id, true);
+        if ($photo !== false) {
+            $panier->removePhoto($photo);
+        } else {
+            throw $this->createNotFoundException("Photo non trouvée");
+        }
+        return $this->redirect($this->generateUrl("projet_photo_panier"));
     }
 
     public function panierAction()

@@ -1,9 +1,13 @@
+projet_photo_admin_personne:
+    resource: "@ProjetPhotoBundle/Resources/config/routing/personne.yml"
+    prefix:   /admin/personne
+
 projet_photo_admin_course:
     resource: "@ProjetPhotoBundle/Resources/config/routing/course.yml"
     prefix:   /admin/course
 
 projet_photo_homepage:
-    path:     /index
+    path:     /
     defaults: { _controller: ProjetPhotoBundle:Default:index }
 
 projet_photo_panier:
@@ -28,3 +32,7 @@ projet_photo_myphotos:
 projet_photo_photos:
     path: /photos/{id}/{key}
     defaults: { _controller: ProjetPhotoBundle:Photos:afficher }
+
+projet_photo_panier_delete:
+    path: /panier/delete/{id}
+    defaults: { _controller: ProjetPhotoBundle:Photos:deletePanier }
