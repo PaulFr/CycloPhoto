@@ -1,15 +1,19 @@
-{% extends '::base.html.twig' %}
+{% extends '::header.html.twig' %}
 
-{% block body -%}
-    <h1>Course creation</h1>
+{% block content %}
+    <div id="content">
+        <div class="wrapper">
+            <h1>Nouvelle course</h1>
 
     {{ form(form) }}
 
     <ul class="record_actions">
         <li>
             <a href="{{ path('admin_course') }}">
-                Back to the list
+                Retour à la liste
             </a>
         </li>
     </ul>
+        </div>
+    </div>
 {% endblock %}

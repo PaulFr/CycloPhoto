@@ -1,6 +1,8 @@
-{% extends '::base.html.twig' %}
+{% extends '::header.html.twig' %}
 
-{% block body -%}
+{% block content %}
+    <div id="content">
+        <div class="wrapper">
     <h1>Course</h1>
 
     <table class="record_properties">
@@ -10,15 +12,15 @@
             <td>{{ entity.id }}</td>
         </tr>
         <tr>
-            <th>Nomcourse</th>
+            <th>Nom</th>
             <td>{{ entity.nomCourse }}</td>
         </tr>
         <tr>
-            <th>Prixphotottc</th>
+            <th>Prix Photo TTC</th>
             <td>{{ entity.prixPhotoTTC }}</td>
         </tr>
         <tr>
-            <th>Datecourse</th>
+            <th>Date</th>
             <td>{{ entity.dateCourse|date('Y-m-d H:i:s') }}</td>
         </tr>
         </tbody>
@@ -27,14 +29,16 @@
     <ul class="record_actions">
         <li>
             <a href="{{ path('admin_course') }}">
-                Back to the list
+                Retour à la liste
             </a>
         </li>
         <li>
             <a href="{{ path('admin_course_edit', { 'id': entity.id }) }}">
-                Edit
+                Editer
             </a>
         </li>
         <li>{{ form(delete_form) }}</li>
     </ul>
+        </div>
+    </div>
 {% endblock %}

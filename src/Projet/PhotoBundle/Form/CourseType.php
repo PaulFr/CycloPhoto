@@ -15,9 +15,9 @@ class CourseType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nomCourse')
-            ->add('prixPhotoTTC')
-            ->add('dateCourse');
+            ->add('nomCourse', null, array("label" => "Nom de la course"))
+            ->add('prixPhotoTTC', null, array("label" => "Prix TTC d'une photo"))
+            ->add('dateCourse', null, array("label" => "Date de la course"));
     }
 
     /**

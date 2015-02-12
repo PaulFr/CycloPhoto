@@ -1,15 +1,17 @@
-{% extends '::base.html.twig' %}
+{% extends '::header.html.twig' %}
 
-{% block body -%}
-    <h1>Course list</h1>
+{% block content %}
+    <div id="content">
+        <div class="wrapper">
+            <h1>Liste des courses</h1>
 
-    <table class="records_list">
+            <table class="records_list" style="width:100%;">
         <thead>
         <tr>
-            <th>Id</th>
-            <th>Nomcourse</th>
-            <th>Prixphotottc</th>
-            <th>Datecourse</th>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prix Photo TTC</th>
+            <th>Date</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -19,14 +21,14 @@
                 <td><a href="{{ path('admin_course_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.nomCourse }}</td>
                 <td>{{ entity.prixPhotoTTC }}</td>
-                <td>{% if entity.dateCourse %}{{ entity.dateCourse|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.dateCourse %}{{ entity.dateCourse|date('d/m/Y') }}{% endif %}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('admin_course_show', { 'id': entity.id }) }}">show</a>
+                            <a href="{{ path('admin_course_show', { 'id': entity.id }) }}">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('admin_course_edit', { 'id': entity.id }) }}">edit</a>
+                            <a href="{{ path('admin_course_edit', { 'id': entity.id }) }}">Editer</a>
                         </li>
                     </ul>
                 </td>
@@ -38,8 +40,10 @@
     <ul>
         <li>
             <a href="{{ path('admin_course_new') }}">
-                Create a new entry
+                Ajouter une nouvelle course
             </a>
         </li>
     </ul>
+        </div>
+    </div>
 {% endblock %}

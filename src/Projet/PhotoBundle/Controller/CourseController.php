@@ -122,7 +122,7 @@ class CourseController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('admin_course_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', 'submit', array('label' => 'Supprimer'))
             ->getForm();
     }
 
@@ -164,7 +164,7 @@ class CourseController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Mettre à jour'));
 
         return $form;
     }
