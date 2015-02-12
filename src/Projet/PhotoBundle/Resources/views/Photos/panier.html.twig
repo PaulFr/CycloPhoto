@@ -11,29 +11,40 @@
 {% block content %}
     <div id="content">
         <div class="wrapper">
-            {% if panier is not null %}
-                <div class="blockEntete">
+            {% if panier.photos|length > 0 %}
+            <div class="carthead">
                     <p> Votre panier contient {{ panier.photos|length }} produit</p>
                 </div>
-
-                <div class="blockProduits">
+            <table style="width:100%">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Nom</th>
+                    <th>Prix</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
                     {% for photo in panier.photos %}
-                    <div class="blockProduit">
-                        <img src="http://lorempicsum.com/simpsons/250/200/1" class="imageProduit"/>
+                        <tr>
+                            <td>
+                                <img src="http://lorempicsum.com/simpsons/250/200/1" class="imageProduit"/>
+                            </td>
+                            <td>{{ photo.course.nomCourse }}</td>
 
-                        <p class="nomProduit">{{ photo.course.nomCourse }}</p>
+                            <td>{{ photo.course.prixPhotoTTC }}€</td>
+                            <td><img src="{{ asset('bundles/projetphoto/images/suprimer.gif') }}"/></td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="4"><strong>Total : <span
+                                        style="font-size:1.2em;">{{ panier.photos[0].course.prixPhotoTTC*panier.photos|length }}
+                                    €</span></strong></td>
+                    </tr>
+                </tbody>
+            </table>
 
-                        <p class="prixProduit">{{ photo.course.prixPhotoTTC }}€</p>
-                        <img src="{{ asset('bundles/projetphoto/images/suprimer.gif') }}"
-                             class="boutonSupprimer"/>
-                    </div>
-                        <div class="delimiteur"></div>
-                {% endfor %}
-            </div>
-            <div class="blockTotal">
-                <p class="textePrixTotal"> Total : {{ panier.photos[0].course.prixPhotoTTC*panier.photos|length }}€ </p>
-
-                <div class="boutonPasserCommande"> Passer Commande</div>
+            <button> Passer Commande</button>
             </div>
             {% else %}
                 <p>Votre panier est vide</p>

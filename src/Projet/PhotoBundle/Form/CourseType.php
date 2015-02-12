@@ -16,7 +16,7 @@ class CourseType extends AbstractType
     {
         $builder
             ->add('nomCourse', null, array("label" => "Nom de la course"))
-            ->add('prixPhotoTTC', null, array("label" => "Prix TTC d'une photo"))
+            ->add('prixPhotoTTC', "number", array("label" => "Prix TTC d'une photo"))
             ->add('dateCourse', null, array("label" => "Date de la course"));
     }
 
