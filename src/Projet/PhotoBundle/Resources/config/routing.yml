@@ -1,3 +1,7 @@
+projet_photo_admin_course:
+    resource: "@ProjetPhotoBundle/Resources/config/routing/course.yml"
+    prefix:   /admin/course
+
 projet_photo_homepage:
     path:     /index
     defaults: { _controller: ProjetPhotoBundle:Default:index }

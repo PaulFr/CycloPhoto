@@ -1,0 +1,30 @@
+admin_course:
+    path:     /
+    defaults: { _controller: "ProjetPhotoBundle:Course:index" }
+
+admin_course_show:
+    path:     /{id}/show
+    defaults: { _controller: "ProjetPhotoBundle:Course:show" }
+
+admin_course_new:
+    path:     /new
+    defaults: { _controller: "ProjetPhotoBundle:Course:new" }
+
+admin_course_create:
+    path:     /create
+    defaults: { _controller: "ProjetPhotoBundle:Course:create" }
+    requirements: { _method: post }
+
+admin_course_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ProjetPhotoBundle:Course:edit" }
+
+admin_course_update:
+    path:     /{id}/update
+    defaults: { _controller: "ProjetPhotoBundle:Course:update" }
+    requirements: { _method: post|put }
+
+admin_course_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ProjetPhotoBundle:Course:delete" }
+    requirements: { _method: post|delete }
