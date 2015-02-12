@@ -19,7 +19,7 @@ class Participer
     private $personne;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Projet\PhotoBundle\Entity\Course")
+     * @ORM\ManyToOne(targetEntity="Projet\PhotoBundle\Entity\Course", inversedBy="participations", cascade={"remove"})
      * @ORM\Id
      */
     private $course;

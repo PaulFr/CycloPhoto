@@ -57,9 +57,10 @@ class Personne
     private $dateNaissance;
 
     /**
-     * @ORM\OneToMany(targetEntity="Projet\PhotoBundle\Entity\Photo", mappedBy="course")
+     * @ORM\OneToMany(targetEntity="Projet\PhotoBundle\Entity\Photo", mappedBy="photo")
      */
     private $photos;
+
 
     public function __construct()
     {

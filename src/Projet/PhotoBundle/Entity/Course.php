@@ -46,10 +46,16 @@ class Course
      */
     private $dateCourse;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Projet\PhotoBundle\Entity\Participer", mappedBy="course", cascade={"remove"})
+     */
+    private $participations;
+
 
     public function __construct()
     {
         $this->photos = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->participations = new \Doctrine\Common\Collections\ArrayCollection();
         $this->dateCourse = new \DateTime();
     }
 

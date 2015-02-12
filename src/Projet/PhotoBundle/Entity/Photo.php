@@ -22,7 +22,7 @@ class Photo
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Projet\PhotoBundle\Entity\Course", fetch="EAGER")
+     * @ORM\ManyToOne(targetEntity="Projet\PhotoBundle\Entity\Course", inversedBy="photos", fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      */
     private $course;
