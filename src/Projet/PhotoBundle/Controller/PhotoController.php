@@ -2,10 +2,13 @@
 
 namespace Projet\PhotoBundle\Controller;
 
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Projet\PhotoBundle\Entity\Photo;
+use Projet\PhotoBundle\Entity\Participer;
 use Projet\PhotoBundle\Form\PhotoType;
 
 /**
@@ -64,18 +67,27 @@ class PhotoController extends Controller
     /**
      * Creates a form to create a Photo entity.
      *
-     * @param Photo $entity The entity
+     * @param $data
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Photo $entity)
+    private function createCreateForm($data)
     {
-        $form = $this->createForm(new PhotoType(), $entity, array(
-            'action' => $this->generateUrl('admin_photo_create'),
-            'method' => 'POST',
-        ));
+        $finder = new Finder();
+        $files = array();
+        $finder->in(__DIR__ . '/../../../../depot_photos')->name('*.zip');
+        foreach ($finder as $file) {
+            $files[$file->getRelativePathName()] = $file->getRelativePathName();
+        }
+
+        $form = $this->createFormBuilder($data)
+            ->add('course', 'entity', array('class' => 'ProjetPhotoBundle:Course', 'label' => 'Course concernée'))
+            ->add('photos', 'choice',
+                array('choices' => $files, 'label' => 'Archive contenant les photos'))
+            ->getForm();
 
         $form->add('submit', 'submit', array('label' => 'Create'));
+
 
         return $form;
     }
@@ -87,12 +99,67 @@ class PhotoController extends Controller
     public function newAction()
     {
         $entity = new Photo();
-        $form = $this->createCreateForm($entity);
+        $form = $this->createCreateForm(array());
+
+        if ($this->getRequest()->getMethod() == 'POST') {
+            $form->handleRequest($this->getRequest());
+
+            $data = $form->getData();
+
+            $this->processZip(__DIR__ . '/../../../../depot_photos/' . $data['photos'], $data['course']);
+        }
 
         return $this->render('ProjetPhotoBundle:Photo:new.html.twig', array(
             'entity' => $entity,
             'form' => $form->createView(),
         ));
+    }
+
+    public function processZip($file, $course)
+    {
+        $zip = new \ZipArchive();
+        $zip->open($file);
+
+        $tmp = dirname($file) . "/tmp" . "/" . time();
+
+        $fs = new FileSystem();
+        $fs->mkdir($tmp);
+
+        $zip->extractTo($tmp);
+
+        $files = new Finder();
+        $files->in($tmp)->name('*.jpg');
+
+        $em = $this->getDoctrine()->getManager();
+        foreach ($files as $file) {
+            $photo = new Photo();
+
+            $info = explode('_', $file->getRelativePathName());
+            $dossard = (int)$info[0];
+
+            $c = $em->getRepository("ProjetPhotoBundle:Course");
+            $r = $em->getRepository("ProjetPhotoBundle:Participer");
+
+            $part = $em->createQuery("SELECT p FROM ProjetPhotoBundle:Participer p WHERE p.course = :course AND p.numDossard = :dossard")->setParameters(array(
+                'course' => $course,
+                'dossard' => $dossard
+            ))->getResult();
+            $part = $part[0];
+            if ($part != null) {
+
+                $photo->setCourse($part->getCourse());
+                $photo->setPersonne($part->getPersonne());
+                $em->persist($photo);
+                $em->flush();
+
+                $fs->copy($tmp . '/' . $file->getRelativePathName(), __DIR__ . '/../../../../photos/' . $photo->getId() . '.jpg');
+            }
+
+
+        }
+
+        $fs->remove($tmp);
+
     }
 
     /**

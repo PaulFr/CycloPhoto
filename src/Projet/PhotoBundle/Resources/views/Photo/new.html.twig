@@ -1,15 +1,22 @@
-{% extends '::base.html.twig' %}
-
-{% block body -%}
-    <h1>Photo creation</h1>
+{% extends '::header.html.twig' %}
+{% block title %}Administration - Photos{% endblock %}
+{% block main_title %}
+    <header>
+        <div class="wrapper">
+            <h1 class="title">Ajouter des photos</h1>
+        </div>
+    </header>
+{% endblock %}
+{% block content %}
+    <div id="content">
+        <div class="wrapper">
 
     {{ form(form) }}
 
-    <ul class="record_actions">
-        <li>
-            <a href="{{ path('admin_photo') }}">
-                Back to the list
+
+            <a class="button" href="{{ path('admin_photo') }}">
+                Revenir à la liste
             </a>
-        </li>
-    </ul>
+        </div>
+    </div>
 {% endblock %}
