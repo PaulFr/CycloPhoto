@@ -1,12 +1,22 @@
-{% extends '::base.html.twig' %}
+{% extends '::header.html.twig' %}
+{% block title %}Administration - Photos{% endblock %}
+{% block main_title %}
+    <header>
+        <div class="wrapper">
+            <h1 class="title">Liste des photos</h1>
+        </div>
+    </header>
+{% endblock %}
+{% block content %}
+    <div id="content">
+        <div class="wrapper">
 
-{% block body -%}
-    <h1>Photo list</h1>
-
-    <table class="records_list">
+            <table class="records_list" style="width:100%;">
         <thead>
         <tr>
             <th>Id</th>
+            <th>Course</th>
+            <th>Coureur</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -14,6 +24,8 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('admin_photo_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.course }}</td>
+                <td>{{ entity.personne }}</td>
                 <td>
                     <ul>
                         <li>
@@ -28,12 +40,13 @@
         {% endfor %}
         </tbody>
     </table>
+            <div class="navigation">
+                {{ knp_pagination_render(entities) }}
+            </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_photo_new') }}">
-                Create a new entry
+            <a class="button" href="{{ path('admin_photo_new') }}">
+                Ajouter des photos
             </a>
-        </li>
-    </ul>
+        </div>
+    </div>
 {% endblock %}

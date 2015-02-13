@@ -1,7 +1,15 @@
-{% extends '::base.html.twig' %}
-
-{% block body -%}
-    <h1>Photo</h1>
+{% extends '::header.html.twig' %}
+{% block title %}Administration - Photos{% endblock %}
+{% block main_title %}
+    <header>
+        <div class="wrapper">
+            <h1 class="title">Voir une photo</h1>
+        </div>
+    </header>
+{% endblock %}
+{% block content %}
+    <div id="content">
+        <div class="wrapper">
 
     <table class="record_properties">
         <tbody>
@@ -25,4 +33,6 @@
         </li>
         <li>{{ form(delete_form) }}</li>
     </ul>
+        </div>
+    </div>
 {% endblock %}

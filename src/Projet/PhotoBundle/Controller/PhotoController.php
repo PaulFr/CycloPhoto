@@ -25,8 +25,15 @@ class PhotoController extends Controller
 
         $entities = $em->getRepository('ProjetPhotoBundle:Photo')->findAll();
 
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $entities,
+            $this->getRequest()->query->get('page', 1),
+            10
+        );
+
         return $this->render('ProjetPhotoBundle:Photo:index.html.twig', array(
-            'entities' => $entities,
+            'entities' => $pagination,
         ));
     }
 

@@ -1,7 +1,3 @@
-projet_photo_admin_photo:
-    resource: "@ProjetPhotoBundle/Resources/config/routing/photo.yml"
-    prefix:   /admin/photo
-
 projet_photo_admin_photos:
     resource: "@ProjetPhotoBundle/Resources/config/routing/photo.yml"
     prefix:   /admin/photos
@@ -44,3 +40,6 @@ projet_photo_photos:
 projet_photo_panier_delete:
     path: /panier/delete/{id}
     defaults: { _controller: ProjetPhotoBundle:Photos:deletePanier }
+projet_photo_admin:
+    path: /admin
+    defaults: { _controller: ProjetPhotoBundle:Admin:index }

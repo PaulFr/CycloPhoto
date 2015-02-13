@@ -1,0 +1,23 @@
+{% extends '::header.html.twig' %}
+{% block title %}Administration{% endblock %}
+{% block main_title %}
+    <header>
+        <div class="wrapper">
+            <h1 class="title">Administration</h1>
+        </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+    <div id="content">
+        <div class="wrapper">
+            <h1>Que faire ?</h1>
+
+            <ul>
+                <li><a href="{{ path('admin_course') }}">Gérer les courses</a></li>
+                <li><a href="{{ path('admin_personne') }}">Gérer les coureurs</a></li>
+                <li><a href="{{ path('admin_photo') }}">Gérer les photos</a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
