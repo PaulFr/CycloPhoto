@@ -94,11 +94,11 @@ if (typeof jQuery === "undefined" &&
                     if (fun && fun.call(thisp, val, i, t)) {
                         res.push(val);
                     }
-                }
+        }
             }
 
             return res;
-        }
+    }
     }
 
     if (!Function.prototype.bind) {
@@ -144,7 +144,7 @@ if (typeof jQuery === "undefined" &&
                     n = 0;
                 } else if (n != 0 && n != Infinity && n != -Infinity) {
                     n = (n > 0 || -1) * Math.floor(Math.abs(n));
-                }
+        }
             }
             if (n >= len) {
                 return -1;
@@ -156,7 +156,7 @@ if (typeof jQuery === "undefined" &&
                 }
             }
             return -1;
-        }
+    }
     }
 
     // fake stop() for zepto.

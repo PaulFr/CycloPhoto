@@ -121,7 +121,7 @@
                         total_slides: slides.length
                     }]);
                     settings.after_slide_change(idx, slides.length);
-                };
+        };
                 if (slides_container.height() != next.height()) {
                     slides_container.animate({'height': next.height()}, 250, 'linear', unlock);
                 } else {
@@ -248,7 +248,7 @@
                     start_time: (new Date()).getTime(),
                     delta_x: 0,
                     is_scrolling: undefined
-                };
+        };
                 container.data('swipe-transition', data);
                 e.stopPropagation();
             })
@@ -268,14 +268,14 @@
 
                     if (typeof data.is_scrolling === 'undefined') {
                         data.is_scrolling = !!( data.is_scrolling || Math.abs(data.delta_x) < Math.abs(e.touches[0].pageY - data.start_page_y) );
-                    }
+        }
 
                     if (!data.is_scrolling && !data.active) {
                         e.preventDefault();
                         var direction = (data.delta_x < 0) ? (idx + 1) : (idx - 1);
                         data.active = true;
                         self._goto(direction);
-                    }
+        }
                 })
                 .on('touchend.fndtn.orbit', function (e) {
                     container.data('swipe-transition', {});
@@ -363,7 +363,7 @@
                 current.css(margin, '100%');
                 callback();
             });
-        };
+    };
 
         this.prev = function (current, prev, callback) {
             prev.css(margin, '-100%');
@@ -371,7 +371,7 @@
                 current.css(margin, '100%');
                 callback();
             });
-        };
+    };
     };
 
     var FadeAnimation = function (container) {
@@ -383,7 +383,7 @@
                 current.css('marginLeft', '100%');
                 callback();
             });
-        };
+    };
 
         this.prev = function (current, prev, callback) {
             prev.css({'marginLeft': '0%', 'opacity': '0.01'});
@@ -391,7 +391,7 @@
                 current.css('marginLeft', '100%');
                 callback();
             });
-        };
+    };
     };
 
 

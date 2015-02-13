@@ -139,7 +139,7 @@
 
                         if (str.length > 0) {
                             this.cached_images.push(image);
-                        }
+            }
                     }
 
                     if (loaded_count === count) {
@@ -266,7 +266,7 @@
             for (var i = count - 1; i >= 0; i--) {
                 if (raw[i].replace(/[\W\d]+/, '').length > 4) {
                     output.push(raw[i]);
-                }
+        }
             }
 
             return output;

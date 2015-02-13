@@ -108,7 +108,7 @@
 
                         if (topOffset <= self.settings.threshold) {
                             $("[data-magellan-arrival='" + destination_name + "']").trigger('arrival');
-                        }
+            }
                         // In large screens we may hit the bottom of the page and dont reach the top of the last magellan-destination, so lets force it
                         if (scrolltopPlusHeight >= $(self.scope).height() && lastDestinationTop > windowScrollTop && lastDestinationTop < scrolltopPlusHeight) {
                             $('[data-magellan-arrival]').last().trigger('arrival');

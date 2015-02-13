@@ -28,7 +28,7 @@
                     {% for photo in panier.photos %}
                         <tr>
                             <td>
-                                <img src="http://lorempicsum.com/simpsons/250/200/1" class="imageProduit"/>
+                                <img src="{{ (photo.id~'.jpg') | imagine_filter('my_thumb') }}" class="imageProduit"/>
                             </td>
                             <td>{{ photo.course.nomCourse }}</td>
 

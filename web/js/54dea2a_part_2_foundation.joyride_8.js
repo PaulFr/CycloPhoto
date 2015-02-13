@@ -394,7 +394,7 @@
                         return $('.' + cl).first();
                     } else {
                         return $('body');
-                    }
+            }
                 };
 
             this.settings.$target = $sel();

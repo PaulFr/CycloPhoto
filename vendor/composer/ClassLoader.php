@@ -54,6 +54,8 @@ class ClassLoader
     private $useIncludePath = false;
     private $classMap = array();
 
+    private $classMapAuthoritative = false;
+
     public function getPrefixes()
     {
         if (!empty($this->prefixesPsr0)) {
@@ -228,6 +230,17 @@ class ClassLoader
     }
 
     /**
+     * Can be used to check if the autoloader uses the include path to check
+     * for classes.
+     *
+     * @return bool
+     */
+    public function getUseIncludePath()
+    {
+        return $this->useIncludePath;
+    }
+
+    /**
      * Turns on searching the include path for class files.
      *
      * @param bool $useIncludePath
@@ -238,14 +251,24 @@ class ClassLoader
     }
 
     /**
-     * Can be used to check if the autoloader uses the include path to check
-     * for classes.
+     * Should class lookup fail if not found in the current class map?
      *
      * @return bool
      */
-    public function getUseIncludePath()
+    public function isClassMapAuthoritative()
     {
-        return $this->useIncludePath;
+        return $this->classMapAuthoritative;
+    }
+
+    /**
+     * Turns off searching the prefix and fallback directories for classes
+     * that have not been registered with the class map.
+     *
+     * @param bool $classMapAuthoritative
+     */
+    public function setClassMapAuthoritative($classMapAuthoritative)
+    {
+        $this->classMapAuthoritative = $classMapAuthoritative;
     }
 
     /**
@@ -298,6 +321,9 @@ class ClassLoader
         // class map lookup
         if (isset($this->classMap[$class])) {
             return $this->classMap[$class];
+        }
+        if ($this->classMapAuthoritative) {
+            return false;
         }
 
         $file = $this->findFileWithExtension($class, '.php');

@@ -23,7 +23,8 @@
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "doctrine/data-fixtures": "@dev",
         "ddeboer/data-import": "@stable",
-        "knplabs/knp-paginator-bundle": "~2.4"
+        "knplabs/knp-paginator-bundle": "~2.4",
+        "liip/imagine-bundle": "~1.2"
 
     },
     "scripts": {

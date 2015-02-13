@@ -50,7 +50,7 @@
 
                         if (!self.settings.init) {
                             self.events().swipe_events();
-                        }
+            }
                     }
                 });
 
@@ -225,7 +225,7 @@
                     return target;
                 } else {
                     return target.closest('.clearing-blackout');
-                }
+            }
             }($(el))), container, visible_image;
 
             if (el === e.target && root) {

@@ -170,7 +170,7 @@ var Zepto = (function () {
             element.parentNode.removeChild(element)
             display == "none" && (display = "block")
             elementDisplay[nodeName] = display
-        }
+    }
         return elementDisplay[nodeName]
     }
 
@@ -203,7 +203,7 @@ var Zepto = (function () {
                 if (methodAttributes.indexOf(key) > -1) nodes[key](value)
                 else nodes.attr(key, value)
             })
-        }
+    }
         return dom
     }
 
@@ -252,7 +252,7 @@ var Zepto = (function () {
             else dom = zepto.qsa(document, selector)
             // create a new Zepto collection from the nodes found
             return zepto.Z(dom, selector)
-        }
+    }
     }
 
     // `$` will be the base `Zepto` object. When calling this
@@ -282,7 +282,7 @@ var Zepto = (function () {
         if (typeof target == 'boolean') {
             deep = target
             target = args.shift()
-        }
+    }
         args.forEach(function (arg) {
             extend(target, arg, deep)
         })
@@ -349,7 +349,7 @@ var Zepto = (function () {
                 : value
         } catch (e) {
             return value
-        }
+    }
     }
 
     $.type = type
@@ -401,7 +401,7 @@ var Zepto = (function () {
         } else {
             for (key in elements)
                 if (callback.call(elements[key], key, elements[key]) === false) return elements
-        }
+    }
 
         return elements
     }
@@ -709,7 +709,7 @@ var Zepto = (function () {
                     props = {
                         top: coords.top - parentOffset.top,
                         left: coords.left - parentOffset.left
-                    }
+            }
 
                 if ($this.css('position') == 'static') props['position'] = 'relative'
                 $this.css(props)
@@ -823,7 +823,7 @@ var Zepto = (function () {
                     parent = parent.offsetParent
                 return parent
             })
-        }
+    }
     }
 
     // for now
@@ -844,7 +844,7 @@ var Zepto = (function () {
                 el = $(this)
                 el.css(dimension, funcArg(this, value, idx, el[dimension]()))
             })
-        }
+    }
     })
 
     function traverseNode(node, fun) {
@@ -1061,7 +1061,7 @@ window.Zepto = Zepto
             return $.proxy(fn[context], fn)
         } else {
             throw new TypeError("expected function")
-        }
+    }
     }
 
     $.fn.bind = function (event, callback) {
@@ -1123,7 +1123,7 @@ window.Zepto = Zepto
                 this.defaultPrevented = true
                 prevent.call(this)
             }
-        }
+    }
     }
 
     $.fn.delegate = function (selector, event, callback) {
@@ -1135,7 +1135,7 @@ window.Zepto = Zepto
                         evt = $.extend(createProxy(e), {currentTarget: match, liveFired: element})
                         return fn.apply(match, [evt].concat([].slice.call(arguments, 1)))
                     }
-                }
+        }
             })
         })
     }
@@ -1199,7 +1199,7 @@ window.Zepto = Zepto
                 return callback ?
                     this.bind(event, callback) :
                     this.trigger(event)
-            }
+    }
         })
 
     ;
@@ -1214,7 +1214,7 @@ window.Zepto = Zepto
                 }
             })
             return this
-        }
+    }
     })
 
     $.Event = function (type, props) {
@@ -1325,12 +1325,12 @@ window.Zepto = Zepto
         if (ajaxBeforeSend(xhr, options) === false) {
             abort('abort')
             return false
-        }
+    }
 
         window[callbackName] = function (data) {
             cleanup()
             ajaxSuccess(data, xhr, options)
-        }
+    }
 
         script.onerror = function () {
             abort('error')
@@ -1420,7 +1420,7 @@ window.Zepto = Zepto
         if (dataType == 'jsonp' || hasPlaceholder) {
             if (!hasPlaceholder) settings.url = appendQuery(settings.url, 'callback=?')
             return $.ajaxJSONP(settings)
-        }
+    }
 
         var mime = settings.accepts[dataType],
             baseHeaders = {},
@@ -1432,7 +1432,7 @@ window.Zepto = Zepto
             baseHeaders['Accept'] = mime
             if (mime.indexOf(',') > -1) mime = mime.split(',', 2)[0]
             xhr.overrideMimeType && xhr.overrideMimeType(mime)
-        }
+    }
         if (settings.contentType || (settings.contentType !== false && settings.data && settings.type.toUpperCase() != 'GET'))
             baseHeaders['Content-Type'] = (settings.contentType || 'application/x-www-form-urlencoded')
         settings.headers = $.extend(baseHeaders, settings.headers || {})
@@ -1459,7 +1459,7 @@ window.Zepto = Zepto
                     else ajaxSuccess(result, xhr, settings)
                 } else {
                     ajaxError(null, xhr.status ? 'error' : 'abort', xhr, settings)
-                }
+        }
             }
         }
 
@@ -1492,7 +1492,7 @@ window.Zepto = Zepto
             data: hasData ? data : undefined,
             success: !hasData ? data : $.isFunction(success) ? success : undefined,
             dataType: hasData ? dataType || success : success
-        }
+    }
     }
 
     $.get = function (url, data, success, dataType) {
@@ -1522,7 +1522,7 @@ window.Zepto = Zepto
                 $('<div>').html(response.replace(rscript, "")).find(selector)
                 : response)
             callback && callback.apply(self, arguments)
-        }
+    }
         $.ajax(options)
         return this
     }
@@ -1565,7 +1565,7 @@ window.Zepto = Zepto
                 result.push({
                     name: el.attr('name'),
                     value: el.val()
-                })
+        })
         })
         return result
     }
@@ -1584,7 +1584,7 @@ window.Zepto = Zepto
             var event = $.Event('submit')
             this.eq(0).trigger(event)
             if (!event.defaultPrevented) this.get(0).submit()
-        }
+    }
         return this
     }
 
@@ -1618,7 +1618,7 @@ window.Zepto = Zepto
             prefix = '-' + downcase(vendor) + '-'
             eventPrefix = event
             return false
-        }
+    }
     })
 
     transform = prefix + 'transform'
@@ -1715,7 +1715,7 @@ window.Zepto = Zepto
         if (scale) {
             props.scale = scale
             el.css($.fx.cssPrefix + 'transform-origin', '0 0')
-        }
+    }
         return el.animate(props, speed, null, callback)
     }
 
@@ -1823,7 +1823,7 @@ window.Zepto = Zepto
                 if (camelName in store) return store[camelName]
             }
             return dataAttr.call($(node), name)
-        }
+    }
     }
 
     // Store value under camelized key on node
@@ -1942,7 +1942,7 @@ window.Zepto = Zepto
                 if (isNaN(num)) arg = arg.replace(/^["']|["']$/g, '')
                 else arg = num
             }
-        }
+    }
         return fn(sel, filter, arg)
     }
 
@@ -2026,7 +2026,7 @@ window.Zepto = Zepto
         if (touch.last) {
             touch.el.trigger('longTap')
             touch = {}
-        }
+    }
     }
 
     function cancelLongTap() {
@@ -2134,7 +2134,7 @@ if (this.Zepto) {
                 sides = {
                     width: ["left", "right"],
                     height: ["top", "bottom"]
-                };
+        };
                 sides[dimension].forEach(function (side) {
                     size += parseInt(elem.css("padding-" + side), 10);
                     if (includeBorder) {
@@ -2143,7 +2143,7 @@ if (this.Zepto) {
                     if (includeMargin) {
                         return size += parseInt(elem.css("margin-" + side), 10);
                     }
-                });
+        });
                 return size;
             } else {
                 return null;

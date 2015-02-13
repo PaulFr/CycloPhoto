@@ -18,7 +18,7 @@
             <div class="photos">
                 {% for photo in participation.course.photos %}
                     <div class="photo">
-                        <a href="#"><img src="http://lorempicsum.com/simpsons/250/200/1"></a>
+                        <a href="#"><img src="{{ (photo.id~'.jpg') | imagine_filter('my_thumb') }}"></a>
                         {% if app.session.get('panier').isBought(photo.id) == false %}
                             <div class="add"><a href="{{ path('projet_photo_ajouter_panier',{'id':photo.id}) }}">Ajouter
                                     au panier ({{ participation.course.prixPhotoTTC }}€)</a></div>

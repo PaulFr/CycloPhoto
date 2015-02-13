@@ -288,7 +288,7 @@
                     } else if ($window.scrollTop() <= distance) {
                         $(klass).removeClass("fixed");
                         $('body').css('padding-top', '0');
-                    }
+            }
                 });
             }
         },

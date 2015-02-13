@@ -188,7 +188,7 @@
                     $(group[i]).removeAttr('data-invalid').parent().removeClass('error');
                 } else {
                     $(group[i]).attr('data-invalid', '').parent().addClass('error');
-                }
+        }
             }
 
             return valid;

@@ -174,7 +174,7 @@
             if (typeof method !== 'string') {
                 window.onload = function () {
                     $('input, textarea').placeholder();
-                }
+        }
             }
         }
     };

@@ -23,7 +23,9 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('admin_photo_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td><!--<a href="{{ path('admin_photo_show', { 'id': entity.id }) }}">{{ entity.id }}</a>-->
+                    <img src="{{ (entity.id~'.jpg') | imagine_filter('my_thumb') }}" alt=""/>
+                </td>
                 <td>{{ entity.course }}</td>
                 <td>{{ entity.personne }}</td>
                 <td>

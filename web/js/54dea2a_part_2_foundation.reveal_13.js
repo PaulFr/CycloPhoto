@@ -32,7 +32,7 @@
                     'opacity': 0,
                     'visibility': 'visible',
                     'display': 'block'
-                },
+        },
                 close: {
                     'opacity': 1,
                     'visibility': 'hidden',
@@ -157,7 +157,7 @@
 
                             self.hide(open_modal, self.settings.css.close);
                             self.show(modal, self.settings.css.open);
-                        }
+            }
                     });
 
                     $.ajax(ajax_settings);

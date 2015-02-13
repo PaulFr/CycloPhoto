@@ -366,7 +366,7 @@
                         // Don't bring in undefined values
                     } else if (copy !== undefined) {
                         target[name] = copy;
-                    }
+        }
                 }
             }
         }
@@ -1283,7 +1283,7 @@
                             if (!old) {
                                 context.removeAttribute("id");
                             }
-                        }
+        }
                     }
                 }
             }
@@ -1424,7 +1424,7 @@
                     while (i--) {
                         if (seed[(j = matchIndexes[i])]) {
                             seed[j] = !(matches[j] = seed[j]);
-                        }
+        }
                     }
                 });
             });
@@ -2492,7 +2492,7 @@
                     while ((elem = elem[dir])) {
                         if (elem.nodeType === 1 || checkNonElements) {
                             return matcher(elem, context, xml);
-                        }
+        }
                     }
                 } :
 
@@ -2509,7 +2509,7 @@
                                     return true;
                                 }
                             }
-                        }
+        }
                     } else {
                         while ((elem = elem[dir])) {
                             if (elem.nodeType === 1 || checkNonElements) {
@@ -2538,7 +2538,7 @@
                     while (i--) {
                         if (!matchers[i](elem, context, xml)) {
                             return false;
-                        }
+        }
                     }
                     return true;
                 } :
@@ -2558,7 +2558,7 @@
                         newUnmatched.push(elem);
                         if (mapped) {
                             map.push(i);
-                        }
+        }
                     }
                 }
             }
@@ -2640,7 +2640,7 @@
 
                                 seed[temp] = !(results[temp] = elem);
                             }
-                        }
+        }
                     }
 
                     // Add elements to results, through postFinder if defined
@@ -2694,7 +2694,7 @@
                             if (Expr.relative[tokens[j].type]) {
                                 break;
                             }
-                        }
+        }
                         return setMatcher(
                             i > 1 && elementMatcher(matchers),
                             i > 1 && toSelector(
@@ -2894,11 +2894,11 @@
                                 if (!selector) {
                                     push.apply(results, seed);
                                     return results;
-                                }
+            }
 
                                 break;
                             }
-                        }
+        }
                     }
                 }
             }
@@ -3085,7 +3085,7 @@
                                 if (type === "function") {
                                     if (!options.unique || !self.has(arg)) {
                                         list.push(arg);
-                                    }
+                }
                                 } else if (arg && arg.length && type !== "string") {
                                     // Inspect recursively
                                     add(arg);
@@ -3116,10 +3116,10 @@
                                 if (firing) {
                                     if (index <= firingLength) {
                                         firingLength--;
-                                    }
+                }
                                     if (index <= firingIndex) {
                                         firingIndex--;
-                                    }
+                }
                                 }
                             }
                         });
@@ -3180,7 +3180,7 @@
                 fired: function () {
                     return !!fired;
                 }
-            };
+    };
 
         return self;
     };
@@ -3313,7 +3313,7 @@
                             .progress(updateFunc(i, progressContexts, progressValues));
                     } else {
                         --remaining;
-                    }
+        }
                 }
             }
 
@@ -3654,7 +3654,7 @@
 
                 // Try to find the camelCased property
                 ret = thisCache[jQuery.camelCase(name)];
-            }
+    }
         } else {
             ret = thisCache;
         }
@@ -3701,7 +3701,7 @@
                         } else {
                             name = name.split(" ");
                         }
-                    }
+        }
                 } else {
                     // If "name" is an array of keys...
                     // When data is initially created, via ("key", "val") signature,
@@ -3733,7 +3733,7 @@
             // had been the only thing left in it
             if (!isEmptyDataObject(cache[id])) {
                 return;
-            }
+    }
         }
 
         // Destroy the cache
@@ -3824,7 +3824,7 @@
                                 name = jQuery.camelCase(name.slice(5));
 
                                 dataAttr(elem, name, data[name]);
-                            }
+            }
                         }
                         jQuery._data(elem, "parsedAttrs", true);
                     }
@@ -3885,7 +3885,7 @@
 
             } else {
                 data = undefined;
-            }
+    }
         }
 
         return data;
@@ -3899,7 +3899,7 @@
             // if the public data object is empty, the private is still empty
             if (name === "data" && jQuery.isEmptyObject(obj[name])) {
                 continue;
-            }
+    }
             if (name !== "toJSON") {
                 return false;
             }
@@ -3971,7 +3971,7 @@
                     jQuery._removeData(elem, type + "queue");
                     jQuery._removeData(elem, key);
                 })
-            });
+    });
         }
     });
 
@@ -3999,13 +3999,13 @@
 
                     if (type === "fx" && queue[0] !== "inprogress") {
                         jQuery.dequeue(this, type);
-                    }
+        }
                 });
         },
         dequeue: function (type) {
             return this.each(function () {
                 jQuery.dequeue(this, type);
-            });
+    });
         },
         // Based off of the plugin by Clint Helfers, with permission.
         // http://blindsignals.com/index.php/2009/07/jquery-delay/
@@ -4118,7 +4118,7 @@
                         while ((clazz = classes[j++])) {
                             if (cur.indexOf(" " + clazz + " ") < 0) {
                                 cur += clazz + " ";
-                            }
+            }
                         }
                         elem.className = jQuery.trim(cur);
 
@@ -4157,7 +4157,7 @@
                             // Remove *all* instances
                             while (cur.indexOf(" " + clazz + " ") >= 0) {
                                 cur = cur.replace(" " + clazz + " ", " ");
-                            }
+            }
                         }
                         elem.className = value ? jQuery.trim(cur) : "";
                     }
@@ -4282,7 +4282,7 @@
                 if (!hooks || !("set" in hooks) || hooks.set(this, val, "value") === undefined) {
                     this.value = val;
                 }
-            });
+    });
         }
     });
 
@@ -4560,7 +4560,7 @@
                     // Use nodeHook if defined (#1954); otherwise setAttribute is fine
                     return nodeHook && nodeHook.set(elem, value, name);
                 }
-            }
+    }
         };
     }
 
@@ -4612,7 +4612,7 @@
         jQuery.attrHooks.contenteditable = {
             set: function (elem, value, name) {
                 nodeHook.set(elem, value === "" ? false : value, name);
-            }
+    }
         };
 
         // Set width and height to auto instead of 0 on empty string( Bug #8150 )
@@ -4653,7 +4653,7 @@
             },
             set: function (elem, value) {
                 return ( elem.style.cssText = value + "" );
-            }
+    }
         };
     }
 
@@ -4673,7 +4673,7 @@
                     }
                 }
                 return null;
-            }
+    }
         };
     }
 
@@ -4704,7 +4704,7 @@
                 if (jQuery.isArray(value)) {
                     return ( elem.checked = jQuery.inArray(jQuery(elem).val(), value) >= 0 );
                 }
-            }
+    }
         };
         if (!jQuery.support.checkOn) {
             jQuery.valHooks[this].get = function (elem) {
@@ -5110,7 +5110,7 @@
                             if ((event.result = ret) === false) {
                                 event.preventDefault();
                                 event.stopPropagation();
-                            }
+            }
                         }
                     }
                 }
@@ -5153,7 +5153,7 @@
                                 matches[sel] = handleObj.needsContext ?
                                 jQuery(sel, this).index(cur) >= 0 :
                                     jQuery.find(sel, this, null, [cur]).length;
-                            }
+            }
                             if (matches[sel]) {
                                 matches.push(handleObj);
                             }
@@ -5320,7 +5320,7 @@
                     // Even when returnValue equals to undefined Firefox will still show alert
                     if (event.result !== undefined) {
                         event.originalEvent.returnValue = event.result;
-                    }
+        }
                 }
             }
         },
@@ -5520,7 +5520,7 @@
 
                 // Remove delegated handlers; cleanData eventually reaps submit handlers attached above
                 jQuery.event.remove(this, "._submit");
-            }
+    }
         };
     }
 
@@ -5579,7 +5579,7 @@
                 jQuery.event.remove(this, "._change");
 
                 return !rformElems.test(this.nodeName);
-            }
+    }
         };
     }
 
@@ -5701,7 +5701,7 @@
         trigger: function (type, data) {
             return this.each(function () {
                 jQuery.event.trigger(type, data, this);
-            });
+    });
         },
         triggerHandler: function (type, data) {
             var elem = this[0];
@@ -5984,7 +5984,7 @@
         if (typeof qualifier === "string") {
             if (isSimple.test(qualifier)) {
                 return jQuery.filter(qualifier, elements, not);
-            }
+    }
 
             qualifier = jQuery.filter(qualifier, elements);
         }
@@ -6003,7 +6003,7 @@
                 safeFrag.createElement(
                     list.pop()
                 );
-            }
+    }
         }
         return safeFrag;
     }
@@ -6292,9 +6292,9 @@
                                 } else {
                                     jQuery.globalEval(( node.text || node.textContent || node.innerHTML || "" ).replace(rcleanScript, ""));
                                 }
-                            }
+            }
                         }
-                    }
+        }
 
                     // Fix #11809: Avoid leaking memory
                     fragment = first = null;
@@ -6360,7 +6360,7 @@
                 for (i = 0, l = events[type].length; i < l; i++) {
                     jQuery.event.add(dest, type, events[type][i]);
                 }
-            }
+    }
         }
 
         // make the cloned public data object a copy from the original
@@ -6422,7 +6422,7 @@
             // checkbox/radio button to an empty string instead of "on"
             if (dest.value !== src.value) {
                 dest.value = src.value;
-            }
+    }
 
             // IE6-8 fails to return the selected option to the default selected
             // state when cloning options
@@ -6476,7 +6476,7 @@
                 } else {
                     jQuery.merge(found, getAll(elem, tag));
                 }
-            }
+    }
         }
 
         return tag === undefined || tag && jQuery.nodeName(context, tag) ?
@@ -6718,11 +6718,11 @@
 
                             } else {
                                 elem[internalKey] = null;
-                            }
+            }
 
                             core_deletedIds.push(id);
                         }
-                    }
+        }
                 }
             }
         },
@@ -6735,7 +6735,7 @@
                 async: false,
                 global: false,
                 "throws": true
-            });
+    });
         }
     });
     jQuery.fn.extend({
@@ -6793,7 +6793,7 @@
 
             return this.each(function (i) {
                 jQuery(this).wrapAll(isFunction ? html.call(this, i) : html);
-            });
+    });
         },
 
         unwrap: function () {
@@ -6843,7 +6843,7 @@
             name = cssPrefixes[i] + capName;
             if (name in style) {
                 return name;
-            }
+    }
         }
 
         return origName;
@@ -6890,7 +6890,7 @@
 
                     if (display && display !== "none" || !hidden) {
                         jQuery._data(elem, "olddisplay", hidden ? display : jQuery.css(elem, "display"));
-                    }
+        }
                 }
             }
         }
@@ -6901,7 +6901,7 @@
             elem = elements[index];
             if (!elem.style) {
                 continue;
-            }
+    }
             if (!show || elem.style.display === "none" || elem.style.display === "") {
                 elem.style.display = show ? values[index] || "" : "none";
             }
@@ -6950,7 +6950,7 @@
                 } else {
                     jQuery(this).hide();
                 }
-            });
+    });
         }
     });
 
@@ -7180,7 +7180,7 @@
                 if (rsLeft) {
                     rs.left = rsLeft;
                 }
-            }
+    }
 
             return ret === "" ? "auto" : ret;
         };
@@ -7227,7 +7227,7 @@
                 if (extra !== "padding") {
                     val += jQuery.css(elem, "border" + cssExpand[i] + "Width", true, styles);
                 }
-            }
+    }
         }
 
         return val;
@@ -7385,7 +7385,7 @@
                 style.filter = ralpha.test(filter) ?
                     filter.replace(ralpha, opacity) :
                 filter + " " + opacity;
-            }
+    }
         };
     }
 
@@ -7400,7 +7400,7 @@
                         // Work around by temporarily setting element display to inline-block
                         return jQuery.swap(elem, {"display": "inline-block"},
                             curCSS, [elem, "marginRight"]);
-                    }
+        }
                 }
             };
         }
@@ -7419,9 +7419,9 @@
                             jQuery(elem).position()[prop] + "px" :
                                 computed;
                         }
-                    }
+        }
                 };
-            });
+    });
         }
 
     });
@@ -7558,7 +7558,7 @@
             // Serialize object item.
             for (name in obj) {
                 buildParams(prefix + "[" + name + "]", obj[name], traditional, add);
-            }
+    }
 
         } else {
             // Serialize scalar item.
@@ -7681,7 +7681,7 @@
                         (structure[dataType] = structure[dataType] || []).push(func);
                     }
                 }
-            }
+    }
         };
     }
 
@@ -7720,7 +7720,7 @@
         for (key in src) {
             if (src[key] !== undefined) {
                 ( flatOptions[key] ? target : ( deep || (deep = {}) ) )[key] = src[key];
-            }
+    }
         }
         if (deep) {
             jQuery.extend(true, target, deep);
@@ -7780,7 +7780,7 @@
 
             }).complete(callback && function (jqXHR, status) {
                 self.each(callback, response || [jqXHR.responseText, status, jqXHR]);
-            });
+    });
         }
 
         return this;
@@ -8269,7 +8269,7 @@
                     // Handle the global AJAX counter
                     if (!( --jQuery.active )) {
                         jQuery.event.trigger("ajaxStop");
-                    }
+        }
                 }
             }
 
@@ -8318,7 +8318,7 @@
             dataTypes.shift();
             if (ct === undefined) {
                 ct = s.mimeType || jqXHR.getResponseHeader("Content-Type");
-            }
+    }
         }
 
         // Check if we're dealing with a known content-type
@@ -8426,12 +8426,12 @@
                                     } else if (converters[conv2] !== true) {
                                         current = tmp[0];
                                         dataTypes.unshift(tmp[1]);
-                                    }
+                }
                                     break;
                                 }
-                            }
+            }
                         }
-                    }
+        }
 
                     // Apply converter (if not an equivalence)
                     if (conv !== true) {
@@ -8447,9 +8447,9 @@
                                     state: "parsererror",
                                     error: conv ? e : "No conversion from " + prev + " to " + current
                                 };
-                            }
+            }
                         }
-                    }
+        }
                 }
             }
         }
@@ -8538,7 +8538,7 @@
                 abort: function () {
                     if (script) {
                         script.onload(undefined, true);
-                    }
+        }
                 }
             };
         }
@@ -8617,7 +8617,7 @@
                 }
 
                 responseContainer = overwritten = undefined;
-            });
+    });
 
             // Delegate to script
             return "script";
@@ -8631,7 +8631,7 @@
                 var key;
                 for (key in xhrCallbacks) {
                     xhrCallbacks[key](undefined, true);
-                }
+    }
             };
 
 // Functions to create xhrs
@@ -8819,7 +8819,7 @@
                                 }
                                 // Add to list of active xhrs callbacks
                                 xhrCallbacks[handle] = callback;
-                            }
+            }
                             xhr.onreadystatechange = callback;
                         }
                     },
@@ -8830,7 +8830,7 @@
                         }
                     }
                 };
-            }
+    }
         });
     }
     var fxNow, timerId,
@@ -8907,7 +8907,7 @@
 
                 // we're done with this property
                 return tween;
-            }
+    }
         }
     }
 
@@ -9044,11 +9044,11 @@
                     if (!( index in props )) {
                         props[index] = value[index];
                         specialEasing[index] = easing;
-                    }
+        }
                 }
             } else {
                 specialEasing[name] = easing;
-            }
+    }
         }
     }
 
@@ -9112,7 +9112,7 @@
                     hooks.unqueued--;
                     if (!jQuery.queue(elem, "fx").length) {
                         hooks.empty.fire();
-                    }
+        }
                 });
             });
         }
@@ -9201,9 +9201,9 @@
                     if (hidden) {
                         tween.end = tween.start;
                         tween.start = prop === "width" || prop === "height" ? 1 : 0;
-                    }
+        }
                 }
-            }
+    }
         }
     }
 
@@ -9422,12 +9422,12 @@
                 for (index = 0; index < length; index++) {
                     if (queue[index] && queue[index].finish) {
                         queue[index].finish.call(this);
-                    }
+        }
                 }
 
                 // turn off finishing flag
                 delete data.finish;
-            });
+    });
         }
     });
 
@@ -9696,7 +9696,7 @@
                     offsetParent = offsetParent.offsetParent;
                 }
                 return offsetParent || docElem;
-            });
+    });
         }
     });
 
@@ -9735,7 +9735,6 @@
             elem.defaultView || elem.parentWindow :
                 false;
     }
-
 // Create innerHeight, innerWidth, height, width, outerHeight and outerWidth methods
     jQuery.each({Height: "height", Width: "width"}, function (name, type) {
         jQuery.each({padding: "inner" + name, content: type, "": "outer" + name}, function (defaultExtra, funcName) {
