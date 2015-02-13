@@ -17,6 +17,7 @@
             <p>Le {{ participation.course.dateCourse|date('d/m/Y') }}</p>
             <div class="photos">
                 {% for photo in participation.course.photos %}
+                    {% if photo.personne == participation.personne %}
                     <div class="photo">
                         <a href="#"><img src="{{ (photo.id~'.jpg') | imagine_filter('my_thumb') }}"></a>
                         {% if app.session.get('panier').isBought(photo.id) == false %}
@@ -26,6 +27,7 @@
                             <div class="add">Déjà dans le panier</div>
                         {% endif %}
                     </div>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
