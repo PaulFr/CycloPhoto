@@ -1,0 +1,7 @@
+Bonjour {{ participation.personne.prenom }},
+
+De nouvelles photos de vous sont disponibles concernant la course "{{ participation.course.nomCourse }}" du {{ participation.course.dateCourse|date('d/m/Y') }}.
+Pour y accéder, rendez-vous sur ce lien : {{ url('projet_photo_photos',{id : participation.course.id, key: participation.codeUnique}) }}
+
+Cordialement,
+CycloPhotos.

@@ -131,6 +131,7 @@ class PhotoController extends Controller
         $files->in($tmp)->name('*.jpg');
 
         $em = $this->getDoctrine()->getManager();
+        $participations = array();
         foreach ($files as $file) {
             $photo = new Photo();
 
@@ -146,7 +147,7 @@ class PhotoController extends Controller
             ))->getResult();
             $part = $part[0];
             if ($part != null) {
-
+                $participations[$part->getPersonne()->getId()] = $part;
                 $photo->setCourse($part->getCourse());
                 $photo->setPersonne($part->getPersonne());
                 $em->persist($photo);
@@ -157,9 +158,23 @@ class PhotoController extends Controller
 
 
         }
-
+        $this->sendEmails($participations);
         $fs->remove($tmp);
 
+    }
+
+    private function sendEmails($participations)
+    {
+        $mailer = $this->get("mailer");
+
+        foreach ($participations as $p) {
+            $message = \Swift_Message::newInstance()
+                ->setSubject('De nouvelles photos disponibles pour la course "' . $p->getCourse()->getNomCourse() . '"')
+                ->setFrom('cyclophotographie@gmail.com')
+                ->setTo($p->getPersonne()->getEmail())
+                ->setBody($this->renderView('ProjetPhotoBundle:Photo:email.txt.twig', array('participation' => $p)));
+            $mailer->send($message);
+        }
     }
 
     /**

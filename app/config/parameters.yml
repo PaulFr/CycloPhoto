@@ -22,19 +22,21 @@ knp_paginator:
     template:
         pagination: 'KnpPaginatorBundle:Pagination:sliding.html.twig'
         sortable: 'KnpPaginatorBundle:Pagination:sortable_link.html.twig'
-
 liip_imagine:
     loaders:
-            default:
-                filesystem:
-                    data_root: %kernel.root_dir%/../photos
+        default:
+            filesystem:
+                data_root: '%kernel.root_dir%/../photos'
     resolvers:
-       default:
-          web_path: ~
-
+        default:
+            web_path: null
     filter_sets:
-        cache: ~
+        cache: null
         my_thumb:
             quality: 75
             filters:
-                thumbnail: { size: [120, 90], mode: outbound }
+                thumbnail:
+                    size:
+                        - 120
+                        - 90
+                    mode: outbound
