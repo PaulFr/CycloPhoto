@@ -296,7 +296,7 @@
             $(window).on('resize', self.compute_dimensions);
             $(window).on('load', self.compute_dimensions);
             slides_container.trigger('orbit:ready');
-        };
+    };
 
         self.init();
     };
@@ -337,7 +337,7 @@
                 callback();
             }, left);
             el.trigger('orbit:timer-started')
-        };
+    };
 
         this.stop = function () {
             if (el.hasClass(settings.timer_paused_class)) {

@@ -1267,7 +1267,7 @@
                         i = groups.length;
                         while (i--) {
                             groups[i] = nid + toSelector(groups[i]);
-                        }
+        }
                         newContext = rsibling.test(selector) && context.parentNode || context;
                         newSelector = groups.join(",");
                     }
@@ -2526,7 +2526,7 @@
                                     }
                                 }
                             }
-                        }
+        }
                     }
                 };
         }
@@ -3855,7 +3855,7 @@
         removeData: function (key) {
             return this.each(function () {
                 jQuery.removeData(this, key);
-            });
+    });
         }
     });
 
@@ -3902,7 +3902,7 @@
     }
             if (name !== "toJSON") {
                 return false;
-            }
+    }
         }
 
         return true;
@@ -4585,7 +4585,7 @@
                 return name === "value" || value === elem.getAttribute(name) ?
                     value :
                     undefined;
-            }
+    }
         };
         jQuery.expr.attrHandle.id = jQuery.expr.attrHandle.name = jQuery.expr.attrHandle.coords =
             // Some attributes are constructed with empty-string values when not defined
@@ -5156,7 +5156,7 @@
             }
                             if (matches[sel]) {
                                 matches.push(handleObj);
-                            }
+            }
                         }
                         if (matches.length) {
                             handlerQueue.push({elem: cur, handlers: matches});
@@ -5734,7 +5734,7 @@
                         if (jQuery.contains(self[i], this)) {
                             return true;
                         }
-                    }
+        }
                 }));
             }
 
@@ -5901,7 +5901,7 @@
 
             if (name.slice(-5) !== "Until") {
                 selector = until;
-            }
+    }
 
             if (selector && typeof selector === "string") {
                 ret = jQuery.filter(selector, ret);
@@ -5970,7 +5970,7 @@
             return jQuery.grep(elements, function (elem, i) {
                 /* jshint -W018 */
                 return !!qualifier.call(elem, i, elem) !== not;
-            });
+    });
 
         }
 
@@ -6892,7 +6892,7 @@
                         jQuery._data(elem, "olddisplay", hidden ? display : jQuery.css(elem, "display"));
         }
                 }
-            }
+    }
         }
 
         // Set the display of most of the elements in a second loop
@@ -6964,7 +6964,7 @@
                         // We should always get a number back from opacity
                         var ret = curCSS(elem, "opacity");
                         return ret === "" ? "1" : ret;
-                    }
+        }
                 }
             }
         },
@@ -8300,7 +8300,7 @@
                 dataType: type,
                 data: data,
                 success: callback
-            });
+    });
         };
     });
 
@@ -8355,7 +8355,7 @@
         if (finalDataType) {
             if (finalDataType !== dataTypes[0]) {
                 dataTypes.unshift(finalDataType);
-            }
+    }
             return responses[finalDataType];
         }
     }
@@ -8451,12 +8451,11 @@
                         }
         }
                 }
-            }
+    }
         }
 
         return {state: "success", data: response};
     }
-
 // Install script dataType
     jQuery.ajaxSetup({
         accepts: {
@@ -9060,7 +9059,7 @@
                 props = ["*"];
             } else {
                 props = props.split(" ");
-            }
+    }
 
             var prop,
                 index = 0,
@@ -9100,7 +9099,7 @@
                 hooks.empty.fire = function () {
                     if (!hooks.unqueued) {
                         oldfire();
-                    }
+        }
                 };
             }
             hooks.unqueued++;
@@ -9178,14 +9177,14 @@
             // store state if its toggle - enables .stop().toggle() to "reverse"
             if (toggle) {
                 dataShow.hidden = !hidden;
-            }
+    }
             if (hidden) {
                 jQuery(elem).show();
             } else {
                 anim.done(function () {
                     jQuery(elem).hide();
                 });
-            }
+    }
             anim.done(function () {
                 var prop;
                 jQuery._removeData(elem, "fxshow");
@@ -9201,7 +9200,7 @@
                     if (hidden) {
                         tween.end = tween.start;
                         tween.start = prop === "width" || prop === "height" ? 1 : 0;
-        }
+                    }
                 }
     }
         }

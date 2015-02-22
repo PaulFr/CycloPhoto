@@ -11,13 +11,13 @@
 {% block content %}
     <div id="content">
         <div class="wrapper">
-            <h1>Que faire ?</h1>
+            <p></p>
 
-            <ul>
-                <li><a href="{{ path('admin_course') }}">Gérer les courses</a></li>
-                <li><a href="{{ path('admin_personne') }}">Gérer les coureurs</a></li>
-                <li><a href="{{ path('admin_photo') }}">Gérer les photos</a></li>
-            </ul>
+            <div>
+                <a class="button" href="{{ path('admin_course') }}">Gérer les courses</a>
+                <a class="button" href="{{ path('admin_personne') }}">Gérer les coureurs</a>
+                <a class="button" href="{{ path('admin_photo') }}">Gérer les photos</a>
+            </div>
         </div>
     </div>
 {% endblock %}
