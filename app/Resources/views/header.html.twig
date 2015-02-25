@@ -11,7 +11,9 @@
                     <li><a href="{{ path('projet_photo_connect') }}">Connexion</a></li>
                 {% else %}
                     <li><a href="{{ path('projet_photo_myphotos') }}">Mes Photos</a></li>
-                    <li><a href="{{ path('projet_photo_panier') }}"><i class="fa fa-shopping-cart"></i> Panier</a></li>
+                    <li><a href="{{ path('projet_photo_panier') }}"><i class="fa fa-shopping-cart"></i>
+                            Panier{% if app.session.get('panier').photos|length > 0 %} ( {{ app.session.get('panier').photos|length }} ){% endif %}
+                        </a></li>
                     <li><a href="{{ path('projet_photo_disconnect') }}">Deconnexion</a></li>
                 {% endif %}
             </ul>
@@ -22,7 +24,8 @@
                     <option value="{{ path('projet_photo_connect') }}">Connexion</option>
                 {% else %}
                     <option value="{{ path('projet_photo_myphotos') }}">Mes Photos</option>
-                    <option value="{{ path('projet_photo_homepage') }}">Panier</option>
+                    <option value="{{ path('projet_photo_homepage') }}">
+                        Panier{% if app.session.get('panier').photos|length > 0 %} ( {{ app.session.get('panier').photos|length }} ){% endif %}</option>
                     <option value="{{ path('projet_photo_disconnect') }}">Deconnexion</option>
                 {% endif %}
 

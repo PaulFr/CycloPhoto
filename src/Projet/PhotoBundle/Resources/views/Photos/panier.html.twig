@@ -45,8 +45,9 @@
                 </tbody>
             </table>
 
-            <button> Passer Commande</button>
-            </div>
+            <a class="button" href="{{ path('projet_photo_panier_valide') }}">Passer Commande</a>
+
+        </div>
             {% else %}
                 <p>Votre panier est vide</p>
             {% endif %}

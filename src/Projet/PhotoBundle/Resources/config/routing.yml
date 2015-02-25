@@ -17,6 +17,11 @@ projet_photo_homepage:
 projet_photo_panier:
     path: /panier
     defaults: { _controller: ProjetPhotoBundle:Photos:panier }
+
+projet_photo_panier_valide:
+    path: /panier/valide
+    defaults: { _controller: ProjetPhotoBundle:Photos:panierValide }
+
 projet_photo_ajouter_panier:
     path: /panier/{id}
     defaults: { _controller: ProjetPhotoBundle:Photos:ajouterPanier }
